@@ -1,2 +1,3 @@
 class PointOfInterest < ApplicationRecord
+  
 end
