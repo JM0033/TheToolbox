@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying old POIs..."
+Answer.destroy_all
+puts "Destroying old POIs completed."
 
 puts "Creating Users..."
 @clemence = User.new(
