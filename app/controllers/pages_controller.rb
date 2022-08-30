@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     @ip = user_ip
     results = Geocoder.search(@ip)
     results.first.coordinates
-    raise
   end
 
   private
