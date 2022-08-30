@@ -1,2 +1,17 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<h1>All questions</h1>
+<button>Ask question</button>
+<div class="d-none"><%= render "form", question: @question %></div>
+<p><%= @questions.count %><%= @questions.count > 1 ? " questions" : " question" %></p>
+<% @questions.each do |question| %>
+<%= link_to question.title, question_path(question) %>
+<%= question.content %>
+  <div class="asker-infos">
+    <p>Asked by: <%= question.user.username %></p>
+    <% if @question.user.photo.attached? %>
+      <%= cl_image_tag question.user.photo.key, crop: :fill %>
+    <% end %>
+  </div>
+<%# <% @answers = question.answers %>
+<%# <p><%= @answers.count %>
+<%# <%= @answers.count > 1 ? " answers" : " answer"</p> %>
+<% end %>

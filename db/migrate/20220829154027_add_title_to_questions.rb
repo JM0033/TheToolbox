@@ -1,5 +1,5 @@
 class AddTitleToQuestions < ActiveRecord::Migration[7.0]
   def change
-    t.string :title
+    add_column :questions, :title, :string
   end
 end
