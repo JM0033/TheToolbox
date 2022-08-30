@@ -1,2 +1,15 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h1><%= @question.title %></h1>
+<p><%= @question.content %></p>
+<p>Asked by: <%= @question.user.username %></p>
+<% if @question.user.photo.attached? %>
+  <%= cl_image_tag @question.user.photo.key, crop: :fill %>
+<% end %>
+
+<h2>X answers</h2>
+<% @question.answers.each do |answer| %>
+<p><%= answer.content %></p>
+<p>Posted by: <%= answer.user.username %></p>
+<% if answer.user.photo.attached? %>
+  <%= cl_image_tag answer.user.photo.key, crop: :fill %>
+<% end %>
+<% end %>
