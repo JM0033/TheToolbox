@@ -1,0 +1,35 @@
+.btn-contain {
+  background-color: #3CC1AA;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.filter {
+  color: white;
+  background-color: #219B85;
+  border-radius: 8px;
+}
+
+body {
+  background-color: #3CC1AA;
+}
+
+.map {
+  background: url("https://www.google.com/maps/d/thumbnail?mid=1YREHjFa9vNECQU-yRF39UvFhvEc&hl=fr");
+  height: 300px;
+  width: 100%;
+}
+
+.fa-user {
+  color: #0F469C;
+  font-size: 25px;
+}
+
+.navbar-toggler {
+  border: solid;
+  border-radius: 50px;
+  border-color: #0F469C;
+  background-color: white;
+}

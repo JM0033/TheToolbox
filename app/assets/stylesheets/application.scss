@@ -10,3 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.main-body-container {
+  min-height: calc(100vh - 66px - 24px);
+ }

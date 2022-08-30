@@ -1,0 +1,25 @@
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px;
+  padding: 6px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.search .icon {
+  justify-self: flex-start;
+  margin-left: 12px;
+}
+
+.text p {
+  margin: 0;
+}
+.search .text {
+  margin: auto;
+}
+
+i {
+  color: #0F469C;
+}
