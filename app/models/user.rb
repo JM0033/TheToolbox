@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :meeting_points, foreign_key: :requestor_id, class_name: "MeetingPoint"
   has_many :meeting_points, foreign_key: :helper_id, class_name: "MeetingPoint"
+  has_one_attached :photo
 end
