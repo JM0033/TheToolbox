@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying old POIs..."
+Answer.destroy_all
+puts "Destroying old POIs completed."
 
 require "open-uri"
 
@@ -64,6 +67,7 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
 @john.save!
+
 
 #--------------------------Questions and Answers-------------------------------
 
@@ -199,4 +203,63 @@ puts "Creating Question 4 and answers"
 )
 @answer3.save!
 
-puts "Seed migrated successfully"
+puts "Creating POIs..."
+
+@eiffelTower = PointOfInterest.new(
+  address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris, France",
+  category: "Tourism",
+  name: "Eiffel Tower",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661862883/w5n9qkuavzytnvex1q3h.jpg")
+@eiffelTower.photos.attach(io: file, filename: "EiffelTower.png", content_type: "image/png")
+@eiffelTower.save!
+
+@towerOfLondon = PointOfInterest.new(
+  address: "London EC3N 4AB",
+  category: "Tourism",
+  name: "Tower of London",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661863433/i3vug1vpu9z6yhbplg1a.jpg")
+@towerOfLondon.photos.attach(io: file, filename: "towerOfLondon.png", content_type: "image/png")
+@towerOfLondon.save!
+
+@campingArcEnCiel = PointOfInterest.new(
+  address: "Les Mazes, 07150 Vallon-Pont-d'Arc",
+  category: "Campsite",
+  name: "Camping Arc en Ciel",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864018/yqgnmzeq9hxf5vp9wjuu.jpg")
+@campingArcEnCiel.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
+@campingArcEnCiel.save!
+
+@campingLangwiederSee = PointOfInterest.new(
+  address: "Eschenrieder Str. 119, 81249 München, Allemagne",
+  category: "Campsite",
+  name: "Camping Langwieder See",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
+@campingLangwiederSee.photos.attach(io: file, filename: "campingLangwiederSee.png", content_type: "image/png")
+@campingLangwiederSee.save!
+
+@roseBikeBerlin = PointOfInterest.new(
+  address: "Lindenstraße 90, 10969 Berlin, Allemagne",
+  category: "Bikeshop",
+  name: "Rose bike Berlin",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864819/gsekds0vhrtshkewb4jh.jpg")
+@roseBikeBerlin.photos.attach(io: file, filename: "roseBikeBerlin.png", content_type: "image/png")
+@roseBikeBerlin.save!
+
+@laBiciAtelierVelo = PointOfInterest.new(
+  address: "21 Rue Maracci, 59800 Lille",
+  category: "Bikeshop",
+  name: "La Bici Atelier Vélo",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
+@laBiciAtelierVelo.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
+@laBiciAtelierVelo.save!
+
+puts "POIs seeding sucessfull"
+
+puts "Seed is complete"
+
