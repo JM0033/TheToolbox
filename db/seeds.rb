@@ -13,14 +13,10 @@ puts "Destroying old POIs completed."
 
 puts "Destroying old datas..."
 
-Question.destroy_all
-Answer.destroy_all
-=======
 Answer.destroy_all
 Question.destroy_all
 Chatroom.destroy_all
 Message.destroy_all
->>>>>>> master
 User.destroy_all
 
 # ----------------------------Users------------------------------------------
