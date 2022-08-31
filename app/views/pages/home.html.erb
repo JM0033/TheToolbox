@@ -1,5 +1,7 @@
   <%= render "shared/navbar" %>
-<div class="map"
+
+<div class="map" style="width: 100%; height: 400px"
+
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-user-position-value="<%= [@userLgn, @userLat]%>"
