@@ -1,11 +1,15 @@
-<div class="card-container">
-  <div class="card-user">
-    <div class="rounded">
-      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-    </div>
-    <div class="card-user-infos">
-      <h2>Username</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-    </div>
+
+<div class="card-user">
+  <div class="card-user-header">
+      <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+      <h2> <%= @user.username %> </h2>
+      <h3> <%= @user.biker_status %> </h3>
+     <%= @user.language %>
   </div>
+  <div class="card-user-infos">
+    <h4><%= @user.bike_model %></h4>
+    <%= @user.description %>
+  </div>
+  <div class="btn-contain">
+  <a href="" class="btn filter">Contact <%= @user.username %></a>
 </div>
