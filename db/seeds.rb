@@ -6,16 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Destroying old POIs..."
-Answer.destroy_all
+PointOfInterest.destroy_all
 puts "Destroying old POIs completed."
 
 require "open-uri"
 
 puts "Destroying old datas..."
 
-User.destroy_all
 Question.destroy_all
 Answer.destroy_all
+User.destroy_all
 
 # ----------------------------Users------------------------------------------
 
@@ -26,7 +26,7 @@ puts "Creating Users..."
   password: "password",
   description: "This is me. I love strange bikes.",
   biker_status: "athletic",
-  language: "french",
+  language: "french"
 )
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657467718/epx2yy70xnkquezsx57y.jpg")
 @clemence.photo.attach(io: file, filename: "clemence.png", content_type: "image/png")
@@ -38,7 +38,7 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
   password: "password",
   description: "This is me. I love bikes",
   biker_status: "pro",
-  language: "french",
+  language: "french"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
@@ -50,7 +50,7 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
   password: "password",
   description: "This is me. I love fast bikes.",
   biker_status: "untrained",
-  language: "french",
+  language: "french"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
@@ -62,7 +62,7 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
   password: "password",
   description: "This is me. I love electrical bikes.",
   biker_status: "athletic",
-  language: "french",
+  language: "french"
 )
 file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
@@ -93,7 +93,7 @@ puts "Creating Question 1 and answers"
 
 @answer2 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @clemence.id,
+  user_id: @clemence.id,
   content: "Le mieux est d'essayer en magasin et de demander conseils aux venderus qui sont normalement bien calés sur le sujet.",
   votes: 10
 )
@@ -114,7 +114,7 @@ puts "Creating Question 2 and answers"
 
 @answer1 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @clemence.id,
+  user_id: @clemence.id,
   content: "Il est récent ou il a plusieurs années ?",
   votes: 1
 )
@@ -122,7 +122,7 @@ puts "Creating Question 2 and answers"
 
 @answer2 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @john.id,
+  user_id: @john.id,
   content: "C'est quoi l'historique du vélo ?",
   votes: 1
 )
@@ -130,7 +130,7 @@ puts "Creating Question 2 and answers"
 
 @answer3 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @jeremy.id,
+  user_id: @jeremy.id,
   content: "Tout ce que je sais c'est que ce modèle de vélo neuf, celui de cette année, est vendu à 1300 €.
   Celui ci doit avoir au moins 2 ans, je ne sais pas si les roues et les composants (vitesses etc) sont comparables, je pars sur l'hypothèse que oui. Mais ça pourrait avoir un impact négatif si ce n'est pas le cas.
   Donc à mon humble avis je dirais que ça peut se vendre vers les 800€ (leboncoin ou site spécialisé). Tu peux tenter l'annonce a 900 pour commencer. Ou regarder s'il y a des annonces de vélos similaires",
@@ -151,7 +151,7 @@ puts "Creating Question 3 and answers"
 
 @answer1 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @john.id,
+  user_id: @john.id,
   content: "Le réglage est très probablement aux fraises, et dans le pire des cas faudra changer les cables.
   Je te conseille de checker des vidéos de réglage des dérailleurs, trouvables en masse en ligne.",
   votes: 2
@@ -160,7 +160,7 @@ puts "Creating Question 3 and answers"
 
 @answer2 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @jeremy.id,
+  user_id: @jeremy.id,
   content: "Comment ça l'amplitude ? Un dérailleur est prévu pour X vitesses, si les butées sont bien réglées et la tension également, il est bien aligné avec chaque pignon en fonction de la vitesse enclenchée.
   La tension peut se régler soit via une molette sur le dérailleur arrière à la base du cable, soit une autre molette sur le cable qui part du cintre, voire les deux.",
   votes: 6
@@ -180,7 +180,7 @@ puts "Creating Question 4 and answers"
 
 @answer1 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @john.id,
+  user_id: @john.id,
   content: "Je connaissais ce tableau et j'allais le poster, mais sans les traits de couleur par pourcentage.
   J'imagine que ça doit être lu de la sorte : Si tu es au-dessus du trait 90 et en dessous de 95, tu es dans les 10 meilleurs % de la population cyclo sur l'effort donné ?",
   votes: 4
@@ -189,7 +189,7 @@ puts "Creating Question 4 and answers"
 
 @answer2 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @jeannoel.id,
+  user_id: @jeannoel.id,
   content: "Tu as un capteur de puissance :o ?",
   votes: 1
 )
@@ -197,7 +197,7 @@ puts "Creating Question 4 and answers"
 
 @answer3 = Answer.new(
   question_id: Question.last.id,
-  user_id:  @clemence.id,
+  user_id: @clemence.id,
   content: "Est-ce pour te fixer des objectifs dans ta vie de cyclo, objectifs qui selon ce tableau pourraient être assez faibles",
   votes: 1
 )
@@ -206,7 +206,7 @@ puts "Creating Question 4 and answers"
 puts "Creating POIs..."
 
 @eiffelTower = PointOfInterest.new(
-  address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris, France",
+  address: "5 Avenue Anatole France, 75007 Paris, France",
   category: "Tourism",
   name: "Eiffel Tower",
 )
@@ -262,4 +262,3 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f
 puts "POIs seeding sucessfull"
 
 puts "Seed is complete"
-
