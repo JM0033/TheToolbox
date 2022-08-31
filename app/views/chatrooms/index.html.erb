@@ -1,8 +1,12 @@
 <% @chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom) do %>
-  <div class="card mb-1">
-    <div class="card-body">
-      <%= chatroom.interlocutor_of(current_user).username %>
+  <div class="card-product mb-1">
+    <%= cl_image_tag "#{chatroom.interlocutor_of(current_user).photo.key}", alt: "#{chatroom.interlocutor_of(current_user).username}'s avatar", class: 'message-avatar'%>
+    <div class="card-product-infos">
+      <h2><%= chatroom.interlocutor_of(current_user).username %></h2>
+      <p><strong>Description: </strong><%= chatroom.interlocutor_of(current_user).description %></p>
+      <p><strong>Status: </strong><%= chatroom.interlocutor_of(current_user).biker_status %></p>
+      <p><strong>Language: </strong><%= chatroom.interlocutor_of(current_user).language %></p>
     </div>
   </div>
   <% end %>
