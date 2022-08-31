@@ -17,9 +17,9 @@ body {
 }
 
 .map {
-  background: url("https://www.google.com/maps/d/thumbnail?mid=1YREHjFa9vNECQU-yRF39UvFhvEc&hl=fr");
-  height: 300px;
   width: 100%;
+  height: 400px;
+  z-index: -1;
 }
 
 .fa-user {
