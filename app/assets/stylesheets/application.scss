@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/questions";
+
+
+
+.main-body-container {
+  min-height: calc(100vh - 66px - 24px);
+ }
+
