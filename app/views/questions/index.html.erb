@@ -1,17 +1,27 @@
-<h1>All questions</h1>
-<button>Ask question</button>
+<div style="display: flex; justify-content: space-between">
+  <h1>All questions</h1>
+  <button class="btn btn-primary">Ask question</button>
+</div>
 <div class="d-none"><%= render "form", question: @question %></div>
-<p><%= @questions.count %><%= @questions.count > 1 ? " questions" : " question" %></p>
-<% @questions.each do |question| %>
-<%= link_to question.title, question_path(question) %>
-<%= question.content %>
-  <div class="asker-infos">
-    <p>Asked by: <%= question.user.username %></p>
-    <% if @question.user.photo.attached? %>
-      <%= cl_image_tag question.user.photo.key, crop: :fill %>
-    <% end %>
-  </div>
-<%# <% @answers = question.answers %>
-<%# <p><%= @answers.count %>
-<%# <%= @answers.count > 1 ? " answers" : " answer"</p> %>
-<% end %>
+<p><strong><%= @questions.count %><%= @questions.count > 1 ? " questions" : " question" %></strong></p>
+<div class="questions-container border-top">
+  <% @questions.each do |question| %>
+    <div class="question-container border-bottom" style="padding: 15px 15px 0px 15px">
+      <h6><strong><%= link_to question.title.capitalize, question_path(question), style: "text-decoration: none" %></strong></h6>
+      <p class="text-ellipsis--2"><%= question.content %></p>
+        <div class="question-info">
+          <div class="answer-count-infos">
+            <% @answers = question.answers %>
+            <p><%= @answers.count %><%= @answers.count > 1 ? " answers" : " answer" %></p>
+          </div>
+          <div class="asker-infos">
+            <div style="padding-right: 6px"><p><strong>Asked by: </strong><%= question.user.username %></p></div>
+              <div><% if question.user.photo.attached? %>
+                <%= cl_image_tag question.user.photo.key, crop: :fill, class: "avatar-small" %>
+              <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
