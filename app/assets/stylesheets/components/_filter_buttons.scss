@@ -6,10 +6,15 @@
   align-items: center;
 }
 
-.filter {
+.filters {
   color: white;
   background-color: #219B85;
   border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -32,4 +37,15 @@ body {
   border-radius: 50px;
   border-color: #0F469C;
   background-color: white;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border-color: #0F469C;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
