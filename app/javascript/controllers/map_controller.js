@@ -17,19 +17,24 @@ export default class extends Controller {
       zoom: 14
     })
     this.#addUserToMap()
-    // this.#fitMapToUser()
+    this.#addMarkersToMap()
   }
 
   #addUserToMap() {
       new mapboxgl.Marker()
         .setLngLat([ this.userPositionValue[0], this.userPositionValue[1] ])
         .addTo(this.map)
-      console.log(this.userPositionValue)
+      // console.log(this.userPositionValue)
     }
 
-  // #fitMapToUser() {
-  //   const bounds = new mapboxgl.LngLatBounds()
-  //   this.userPosition.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  // }
+  #addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+        console.log(this.markersValue)
+    })
+  }
+
+
   }
