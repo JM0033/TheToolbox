@@ -9,4 +9,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :biker_status, inclusion: { in: ["untrained", "average", "in good shape", "athletic", "pro"] }, allow_nil: true
+
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 end
