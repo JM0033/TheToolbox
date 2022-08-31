@@ -1,5 +1,5 @@
 .btn-contain {
-  background-color: #3CC1AA;
+  background-color: $main-light;
   height: 50px;
   display: flex;
   justify-content: space-evenly;
@@ -8,7 +8,7 @@
 
 .filters {
   color: white;
-  background-color: #219B85;
+  background-color: $main-dark;
   border-radius: 8px;
   padding: 6px;
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 body {
-  background-color: #3CC1AA;
+  background-color: $main-light;
 }
 
 .map {
@@ -28,14 +28,14 @@ body {
 }
 
 .fa-user {
-  color: #0F469C;
+  color: $secondary-dark;
   font-size: 25px;
 }
 
 .navbar-toggler {
   border: solid;
   border-radius: 50px;
-  border-color: #0F469C;
+  border-color: $secondary-dark;
   background-color: white;
 }
 
@@ -43,7 +43,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50px;
-  border-color: #0F469C;
+  border-color: $secondary-dark;
   background-color: white;
   display: flex;
   justify-content: center;

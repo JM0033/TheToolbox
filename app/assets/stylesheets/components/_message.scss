@@ -1,3 +1,6 @@
+.card.msg {
+  background-color: $main-light !important;
+}
 .message {
   margin-bottom: 8px;
   .message-infos {
@@ -28,6 +31,7 @@
       border: 1px rgb(200, 200, 200) solid;
       padding: 8px 16px;
       border-radius: 5px;
+      background-color: white;
     }
   }
 }
