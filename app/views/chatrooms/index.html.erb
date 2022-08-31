@@ -1,0 +1,9 @@
+<% @chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom) do %>
+  <div class="card mb-1">
+    <div class="card-body">
+      <%= chatroom.interlocutor_of(current_user).username %>
+    </div>
+  </div>
+  <% end %>
+<% end %>

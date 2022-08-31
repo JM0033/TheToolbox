@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :points_of_interests, only: [:index, :show]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :chatrooms, only: %i[ index show ] do
+  resources :messages, only: %i[ create ]
+  end
 end
