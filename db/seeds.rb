@@ -6,16 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Destroying old POIs..."
-Answer.destroy_all
 puts "Destroying old POIs completed."
 
 require "open-uri"
 
 puts "Destroying old datas..."
-
-User.destroy_all
-Question.destroy_all
 Answer.destroy_all
+Question.destroy_all
+Chatroom.destroy_all
+Message.destroy_all
+User.destroy_all
 
 # ----------------------------Users------------------------------------------
 
@@ -68,6 +68,13 @@ file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
 @john.save!
 
+
+#--------------------------Chatrooms-------------------------------
+
+User.excluding(@john).each do |user|
+  Chatroom.create!(first_user: @john, second_user: user)
+  puts "Chatroom for #{@john.username} & #{user.username} created"
+end
 
 #--------------------------Questions and Answers-------------------------------
 
@@ -262,4 +269,3 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f
 puts "POIs seeding sucessfull"
 
 puts "Seed is complete"
-

@@ -1,0 +1,12 @@
+<% sender = message.user == current_user %>
+<!-- the message will display on the right side of the chat
+if the `sender` class is present -->
+<div class="message <%= 'sender' if sender %>">
+  <div class="message-content">
+    <%= cl_image_tag "#{message.user.photo.key}", alt: "#{message.user.username}'s avatar", class: 'message-avatar'%>
+    <p><%= message.content %></p>
+  </div>
+  <div class="message-infos">
+    <p><%= sender ? 'You' : message.user.username %> at <%= message.created_at.strftime("%H:%M") %></p>
+  </div>
+</div>
