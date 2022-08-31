@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import mapboxgl from "mapbox-gl"
 
 export default class extends Controller {
   static values = {
@@ -14,15 +15,12 @@ export default class extends Controller {
       navigator.geolocation.getCurrentPosition(function(position) {
         coordinates = [position.coords.latitude, position.coords.longitude];
         console.log(coordinates)
-        map.on('load', function () {
-          map.flyTo({
-             center: [
-                position.coords.latitude, // Example data
-                position.coords.longitude // Example data
-             ],
-             essential: true // this animation is considered essential with respect to prefers-reduced-motion
-          });
-        });
+        const map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/streets-v9",
+          center: [ position.coords.latitude, position.coords.longitude ],
+          zoom: 12
+        })
       });
     }
   }
