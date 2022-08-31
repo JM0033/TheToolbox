@@ -14,4 +14,8 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
   }
+
+
+
+
 }
