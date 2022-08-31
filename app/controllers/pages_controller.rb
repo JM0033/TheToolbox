@@ -9,6 +9,5 @@ class PagesController < ApplicationController
 
   def user_ip
     request.remote_ip
-    # "138.199.16.148"
   end
 end
