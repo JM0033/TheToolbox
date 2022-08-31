@@ -1,8 +1,5 @@
-<div class="map">
-<%= render "shared/navbar" %>
-</div>
-
-<div style="width: 100%; height: 600px;"
+  <%= render "shared/navbar" %>
+<div class="map" style="width: 100%; height: 400px; z-index: -1"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
