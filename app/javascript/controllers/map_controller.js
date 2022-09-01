@@ -64,10 +64,10 @@ export default class extends Controller {
         // .setPopup(popup)
         .addTo(this.map)
       bikerMarker.getElement().addEventListener('click', () => {
+        console.log(marker)
         console.log("Clicked", marker.user_card)
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.user_card)
        })
     })
   }
 }
-
