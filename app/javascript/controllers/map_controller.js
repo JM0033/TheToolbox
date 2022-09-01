@@ -7,8 +7,11 @@ export default class extends Controller {
     usersMarkers: Array,
     userPosition: Array
   }
+  // static targets = ["content"]
+
 
   connect() {
+    console.log(this.contentTarget)
     mapboxgl.accessToken = this.apiKeyValue
     console.log("connected to map")
 
@@ -20,6 +23,7 @@ export default class extends Controller {
     })
     this.#addUserToMap()
     this.#addMarkersToMap()
+    this.#addUsersMarkersToMap()
   }
 
   #addUserToMap() {
@@ -44,5 +48,20 @@ export default class extends Controller {
     })
   }
 
-
+  #addUsersMarkersToMap() {
+    this.usersMarkersValue.forEach((marker) => {
+      console.log("lat:", marker.lat, "lng:", marker.lng, "url:", marker.image_url)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "cover"
+      customMarker.style.width = "30px"
+      customMarker.style.height = "40px"
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.lat, marker.lng ])
+        .setPopup(popup)
+        .addTo(this.map)
+    })
   }
+}
