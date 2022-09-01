@@ -5,10 +5,6 @@ export default class extends Controller {
   static targets = ["form", "input", "list", "counter"]
   connect() {
     console.log("the search controller is well loaded")
-    console.log(this.formTarget)
-    console.log(this.inputTarget)
-    console.log(this.listTarget)
-    console.log(this.counterTarget.innerText)
   }
 
   update() {
@@ -20,8 +16,8 @@ export default class extends Controller {
         console.log("counter:", data);
         this.listTarget.outerHTML = data
       })
-    // .then(() => {
-    //   this.counterTarget.innerText = this.listTarget.childElementCount + (this.listTarget.childElementCount > 1 ? " questions" : " question")
-    // })
+    .then(() => {
+      this.counterTarget.innerText = this.listTarget.childElementCount + (this.listTarget.childElementCount > 1 ? " questions" : " question")
+    })
   }
 }

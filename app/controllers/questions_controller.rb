@@ -5,10 +5,10 @@ class QuestionsController < ApplicationController
 
     @questions = @questions.search_by_title_and_content(params[:query]) if params[:query].present?
 
-    # respond_to do |format|
-    #   format.html
-    #   format.text { render partial: "questions/list", locals: { questions: @questions }, formats: [:html] }
-    # end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "questions/list", locals: { questions: @questions }, formats: [:html] }
+    end
   end
 
   def show
