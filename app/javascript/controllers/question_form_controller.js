@@ -38,6 +38,9 @@ export default class extends Controller {
         this.toggleForm();
         this.counterTarget.innerHTML = data.counter
       })
+      // .then(() => {
+      //   this.counterTarget.innerText = this.questionsTarget.childElementCount + (this.questionsTarget.childElementCount > 1 ? " questions" : " question")
+      // })
   }
 
 

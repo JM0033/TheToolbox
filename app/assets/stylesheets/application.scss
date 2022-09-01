@@ -11,10 +11,8 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/questions";
+@import "components/user_map_card";
+@import "components/map";
+@import "components/poi_card";
 
-
-
-.main-body-container {
-  min-height: calc(100vh - 66px - 24px);
- }
 
