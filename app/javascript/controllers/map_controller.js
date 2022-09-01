@@ -8,6 +8,7 @@ export default class extends Controller {
     userPosition: Array
   }
   // static targets = ["content"]
+  static targets = ["mapbox"]
 
 
   connect() {
@@ -51,17 +52,21 @@ export default class extends Controller {
   #addUsersMarkersToMap() {
     this.usersMarkersValue.forEach((marker) => {
       console.log("lat:", marker.lat, "lng:", marker.lng, "url:", marker.image_url)
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
       customMarker.style.width = "30px"
       customMarker.style.height = "40px"
-      new mapboxgl.Marker(customMarker)
+      const bikerMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lat, marker.lng ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(this.map)
+      bikerMarker.getElement().addEventListener('click', () => {
+        console.log("Clicked", marker.user_card)
+        this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.user_card)
+       })
     })
   }
 }
