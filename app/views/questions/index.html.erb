@@ -1,13 +1,28 @@
-<div class="questions-container" style="background-color: white" data-controller="question-form" >
-  <div style="display: flex; justify-content: space-between">
-    <h1>All questions</h1>
-    <button class="btn btn-primary" data-action="click->question-form#toggleForm" data-question-form-target="button">Ask question</button>
-  </div>
-  <div class="d-grid gap-2 p-3"><%= render "form", question: @question %></div>
-  <p><strong data-question-form-target="counter"><%= @questions.count %><%= @questions.count > 1 ? " questions" : " question" %></strong></p>
-  <div class="questions-container border-top" data-question-form-target="questions">
-    <% @questions.each do |question| %>
-      <%= render "questions/question", question: question %>
-    <% end %>
+<div class="container">
+  <div class="container" style="background-color: white; padding-top: 15px">
+    <div class="questions-container" style="background-color: white" data-controller="question-form" >
+      <div style="display: flex; justify-content: space-between">
+        <h1>All questions</h1>
+        <button class="btn btn-primary" data-action="click->question-form#toggleForm" data-question-form-target="button">Ask question</button>
+      </div>
+      <div class="d-grid gap-2 p-3"><%= render "form", question: @question %></div>
+    <%# Search bar %>
+      <div data-controller="search-questions">
+        <%= form_with url: questions_path, method: :get, html: {class:
+          "mb-4", data: {search_questions_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control",
+                          placeholder: "Search for questions",
+                          value: params[:query],
+                          data: {
+                            search_questions_target: "input",
+                            action: "keyup->search-questions#update"
+                          } %>
+        <% end %>
+      <%# Questions list %>
+        <p><strong data-question-form-target="counter" data-search-questions-target="counter"><%= @questions.count %><%= @questions.count > 1 ? " questions" : " question" %></strong></p>
+        <%= render "list" %>
+      </div>
+    </div>
   </div>
 </div>
