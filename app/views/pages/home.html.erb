@@ -1,55 +1,64 @@
   <%= render "shared/navbar" %>
+<div data-controller="filter bikers">
+  <div class="map" style="width: 100%; height: 400px"
 
-<div class="map" style="width: 100%; height: 400px"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-users-markers-value="<%= @users_markers.to_json %>"
+    data-map-user-position-value="<%= [@userLgn, @userLat]%>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-users-markers-value="<%= @users_markers.to_json %>"
-  data-map-user-position-value="<%= [@userLgn, @userLat]%>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<div class="search">
-  <div class="icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div>
-  <div class="text">
-    <p>Where are we going?</p>
-  </div>
-</div>
-<div class="search">
-  <div class="icon">
-    <i class="fa-solid fa-users"></i>
-  </div>
-  <div class="text">
-    <p>Find bikers around me</p>
-  </div>
-</div>
-
-<div class="btn-contain container">
-  <div class="filters">
+  <div class="search">
     <div class="icon">
-      <i class="fa-solid fa-shop"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     <div class="text">
-      <p data-filter-target="content">Bike shops</p>
+      <p>Where are we going?</p>
     </div>
   </div>
-  <div class="filters">
-    <div class="icon">
-      <i class="fa-solid fa-campground"></i>
+  <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
+    <div class="search">
+      <div class="icon">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <div class="text">
+        <p style="color: black;">Find bikers around me</p>
+      </div>
     </div>
-    <div class="text">
-      <p data-filter-target="content">Camp sites</p>
-    </div>
-  </div>
-  <div class="filters">
-    <div class="icon">
-      <i class="fa-solid fa-monument"></i>
-    </div>
-    <div class="text">
-      <p data-filter-target="content">Tourism</p>
-    </div>
+  <% end %>
+
+  <div class="btn-contain container">
+    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "bikeshop" } do %>
+      <div class="filters">
+        <div class="icon">
+          <i class="fa-solid fa-shop"></i>
+        </div>
+        <div class="text">
+          <p data-filter-target="content">Bike shops</p>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "campsite" } do %>
+      <div class="filters">
+        <div class="icon">
+          <i class="fa-solid fa-campground"></i>
+        </div>
+        <div class="text">
+          <p data-filter-target="content">Camp sites</p>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "tourism" } do %>
+      <div class="filters">
+        <div class="icon">
+          <i class="fa-solid fa-monument"></i>
+        </div>
+        <div class="text">
+          <p data-filter-target="content">Tourism</p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

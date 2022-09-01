@@ -18,7 +18,7 @@ class PagesController < ApplicationController
       }
     end
 
-    @users = User.all
+    @users = User.all.where.not(id: current_user.id)
     @users_markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
