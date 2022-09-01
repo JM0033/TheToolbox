@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        user_card: render_to_string(partial: "shared/user_map_card", locals: { user: user }),
+        # info_window: render_to_string(partial: "shared/user_map_card", locals: { user: user }),
         image_url: helpers.asset_url("Bikers.png")
       }
     end
