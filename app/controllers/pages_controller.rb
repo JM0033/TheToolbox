@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @userLat = results.first.coordinates[0]
     @userLgn = results.first.coordinates[1]
 
+
     @points_of_interests = PointOfInterest.all
     # The `geocoded` scope filters only POI with coordinates
     @markers = @points_of_interests.geocoded.map do |point_of_interest|
@@ -17,6 +18,15 @@ class PagesController < ApplicationController
 
       }
     end
+
+    @users = User.all
+    @users_markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window: render_to_string(partial: "shared/user_map_card", locals: { user: user }),
+        image_url: helpers.asset_url("#{user.photo.attached}")
+      }
   end
 
   private

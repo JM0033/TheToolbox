@@ -4,6 +4,7 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
+    usersMarkers: Array,
     userPosition: Array
   }
 
