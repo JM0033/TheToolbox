@@ -1,0 +1,13 @@
+.footer-content{
+  display: flex;
+  z-index: -1000;
+  font-size: 20px;
+  background-color: white;
+  min-height: 60px;
+  margin: 4px 0px 4px 0px;
+  align-items: center;
+}
+
+.btn-footer{
+  justify-content: space-evenly;
+}

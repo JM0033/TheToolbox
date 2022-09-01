@@ -47,7 +47,6 @@ export default class extends Controller {
         .addTo(this.map)
     })
   }
-}
 
   #addUsersMarkersToMap() {
     this.usersMarkersValue.forEach((marker) => {
@@ -66,3 +65,4 @@ export default class extends Controller {
     })
   }
 }
+
