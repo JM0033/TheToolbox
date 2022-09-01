@@ -9,7 +9,7 @@
   left: 1rem;
   right: 1rem;
   z-index: 10000;
-  bottom: -100%;
+  // bottom: -100%;
   transition: bottom 1s ease;
 }
 
@@ -37,8 +37,11 @@
     align-self: top;
   }
 
-  .btn-filter{
-    justify-self: center;
+  .fa-solid{
+    font-size: 25px;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.3rem;
   }
 }
 
@@ -73,5 +76,6 @@
     display:flex;
     justify-content:center;
     padding-top: 10px;
+
   }
 }

@@ -1,23 +1,21 @@
 
-<div class="card-user">
+<div class="card-user" data-controller="user-map-card" data-user-map-card-target="userCard">
   <div class="card-user-header">
     <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
     <div>
-      <h1> Username</h1>
-      <h2> Biker status</h2>
+      <h1> <%= user.username %> </h1>
+      <h2> <%= user.biker_status %> </h2>
     </div>
-     <p> Spoken languages: </p>
+    <div class="header-second-column">
+      <i class="fa-solid fa-square-xmark" data-action="click->user-map-card#closeUserMapCard"></i>
+      <p> <%= user.language %> </p>
+    </div>
   </div>
   <div class="card-user-infos">
-    <h2> Bike model</h2>
-    <p> Very loooooooooooooooooooooo
-    ooooooooooooooooooooooooooooooooo
-    oooooooooooooooooooooooooooooooooo
-    ooooooooooooooooooooooooooooooooooo
-    ooooooooooooooooooooooooooooooooooo
-    ooooooooooooooooooong description</p>
+    <h2> <%= user.bike_model %> </h2>
+    <p> <%= user.description %> </p>
     <div id="btn-user-card">
-      <a href="" class="btn filter" >Contact Username</a>
+      <a href="" class="btn filters btn-long" >Contact <%= user.username %> </a>
     </div>
   </div>
 </div>
