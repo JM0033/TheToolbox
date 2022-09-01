@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import QuestionFormController from "./question_form_controller"
 application.register("question-form", QuestionFormController)
+
+import UserMapCardController from "./user_map_card_controller"
+application.register("user-map-card", UserMapCardController)
