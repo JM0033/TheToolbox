@@ -20,5 +20,5 @@ class User < ApplicationRecord
   validates :biker_status, inclusion: { in: ["untrained", "average", "in good shape", "athletic", "pro"] }, allow_nil: true
 
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocoded
+  # after_validation :reverse_geocode
 end
