@@ -6,15 +6,20 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def create
     @question = Question.new(question_params)
-    if @question.save!
-      flash[:notice] = "Your question has successfully been submitted"
-      redirect_to question_path(@question)
-    else
-      render :new, status: :unprocessable_entity
+    @question.user = current_user
+
+    respond_to do |format|
+      if @question.save
+        flash[:notice] = "Your question has successfully been submitted"
+        format.json
+      else
+        format.json
+      end
     end
   end
 

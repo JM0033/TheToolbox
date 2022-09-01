@@ -1,6 +1,6 @@
-<%= simple_form_for @question do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
+<%= simple_form_for question, html: { class: "d-none", data: {question_form_target: "questionForm", action: "submit->question-form#insert"}} do |f| %>
+  <%= f.input :title, input_html: { data: { question_form_target: "title"} } %>
+  <%= f.input :content, input_html: { data: { question_form_target: "content"} } %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <%= f.submit value: "Submit question", class: "btn btn-primary" %>
 <% end %>

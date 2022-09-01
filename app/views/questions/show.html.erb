@@ -1,23 +1,27 @@
-<h1><%= @question.title.capitalize %></h1>
-<p><%= @question.content %></p>
-<div class="asker-infos">
-  <div style="padding-right: 6px"><p><strong>Asked by: </strong><%= @question.user.username %></p></div>
-    <div><% if @question.user.photo.attached? %>
-      <%= cl_image_tag @question.user.photo.key, crop: :fill, class: "avatar-small" %>
-    <% end %>
-    </div>
-</div>
-<h4><strong><%=@question.answers.count%> answers</strong></h4>
-  <% @question.answers.each do |answer| %>
-    <div>
-      <p><%= answer.content %></p>
-      <div class="answerer-infos border-bottom">
-        <div style="padding-right: 6px"><p><strong>Answered by: </strong><%= answer.user.username %></p></div>
-        <div><% if answer.user.photo.attached? %>
-          <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
-        <% end %>
+<div style="background-color: white">
+  <%= link_to "Back to all questions", questions_path %>
+  <h1><%= @question.title.capitalize %></h1>
+  <p><%= @question.content %></p>
+  <div class="asker-infos">
+    <div style="padding-right: 6px"><p><strong>Asked by: </strong><%= @question.user.username %></p></div>
+      <div><% if @question.user.photo.attached? %>
+        <%= cl_image_tag @question.user.photo.key, crop: :fill, class: "avatar-small" %>
+      <% end %>
       </div>
-    </div>
-  <% end %>
-  <h4><strong>Your answer</strong></h4>
+  </div>
+  <h4><strong><%=@question.answers.count%> answers</strong></h4>
+    <% @question.answers.each do |answer| %>
+      <div>
+        <p><%= answer.content %></p>
+        <div class="answerer-infos border-bottom">
+          <div style="padding-right: 6px"><p><strong></strong><%= answer.user.username %></p></div>
+          <div><% if answer.user.photo.attached? %>
+            <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <h4><strong>Your answer</strong></h4>
+    <div class="d-grid gap-2 p-3"><%= render "answers/form", question: @question, answer: @answer %></div>
+  </div>
 

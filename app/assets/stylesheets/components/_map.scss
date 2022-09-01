@@ -3,4 +3,12 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
 }
