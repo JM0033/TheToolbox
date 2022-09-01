@@ -12,7 +12,7 @@ export default class extends Controller {
     if (this.questionFormTarget.classList.contains('d-none')) {
 
       this.questionFormTarget.classList.remove("d-none");
-      this.buttonTarget.innerText = "Hide question form"
+      this.buttonTarget.innerText = "Hide form"
     }
     else {
       this.questionFormTarget.classList.add('d-none')

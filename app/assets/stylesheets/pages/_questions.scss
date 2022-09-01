@@ -22,3 +22,37 @@
   display: flex;
   justify-content: space-between;
 }
+
+.questions-container {
+  .btn{
+    background: $main-dark;
+    color: white;
+    border-radius: 8px;
+  }
+}
+
+.answers-form {
+  .btn{
+    background: $main-dark;
+    color: white;
+    border-radius: 8px;
+  }
+}
+
+.questions-container {
+    color: $text-grey;
+}
+
+.question-page-container {
+  color: $text-grey;
+}
+
+.question-container {
+  a {
+    color: $secondary-light;
+  }
+}
+
+
+
+

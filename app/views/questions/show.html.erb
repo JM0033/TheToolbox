@@ -1,9 +1,11 @@
-<div class="container">
-  <div style="background-color: white">
-    <p>< <%= link_to "All questions", questions_path, style:"color: grey" %></p>
-    <br>
-    <h1><%= @question.title.capitalize %></h1>
-    <p><%= @question.content %></p>
+<div class="container" style="padding: 15px 15px 15px 15px">
+  <div class="question-page-container" style="background-color: white; padding: 15px 15px 15px 15px; border-radius: 8px">
+    <p>< <%= link_to "All questions", questions_path, style:"color: #4A4A4A" %></p>
+    <h1 style="padding-top: 12px"><strong><%= @question.title.capitalize %></strong></h1>
+    <p style="padding-top: 12px"><%= @question.content %></p>
+    <% if @question.photo.attached? %>
+      <%= cl_image_tag @question.photo.key, crop: :fill, style: "max-width: 300px; padding-bottom: 15px" %>
+    <% end %>
     <div class="asker-infos">
       <div style="padding-right: 6px"><p><strong>Asked by: </strong><%= @question.user.username %></p></div>
         <div><% if @question.user.photo.attached? %>
@@ -11,11 +13,11 @@
         <% end %>
         </div>
     </div>
-    <h4 class="border-bottom"><strong><%=@question.answers.count%> answers</strong></h4>
+    <h4><strong><%= @question.answers.count %><%= @question.answers.count > 1 ? " answers" : " answer" %></strong></h4>
       <% @question.answers.each do |answer| %>
         <div>
-          <p><%= answer.content %></p>
-          <div class="answerer-infos border-bottom">
+          <p class="border-top" style="padding-top: 15px"><%= answer.content %></p>
+          <div class="answerer-infos">
             <div style="padding-right: 6px"><p><strong></strong><%= answer.user.username %></p></div>
             <div><% if answer.user.photo.attached? %>
               <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
@@ -24,7 +26,7 @@
         </div>
       <% end %>
       <h4><strong>Your answer</strong></h4>
-      <div class="d-grid gap-2 p-3"><%= render "answers/form", question: @question, answer: @answer %></div>
+      <div class="answers-form d-grid gap-2 p-1"><%= render "answers/form", question: @question, answer: @answer %></div>
     </div>
   </div>
 
