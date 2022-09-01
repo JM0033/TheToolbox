@@ -36,8 +36,12 @@ export default class extends Controller {
         this.questionFormTarget.outerHTML = data.form;
         this.questionFormTarget.classList.remove('d-none');
         this.toggleForm();
+        // console.log("data.counter", data.counter);
         this.counterTarget.innerHTML = data.counter
       })
+      // .then(() => {
+      //   this.counterTarget.innerText = this.questionsTarget.childElementCount + (this.questionsTarget.childElementCount > 1 ? " questions" : " question")
+      // })
   }
 
 

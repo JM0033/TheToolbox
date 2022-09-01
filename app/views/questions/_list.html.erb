@@ -1,0 +1,5 @@
+    <div class="questions-container border-top" id="toto" data-question-form-target="questions" data-search-questions-target="list">
+      <% @questions.each do |question| %>
+        <%= render "questions/question", question: question %>
+      <% end %>
+    </div>
