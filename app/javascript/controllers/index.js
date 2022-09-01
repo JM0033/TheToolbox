@@ -18,3 +18,6 @@ application.register("question-form", QuestionFormController)
 
 import SearchQuestionsController from "./search_questions_controller"
 application.register("search-questions", SearchQuestionsController)
+
+import UserMapCardController from "./user_map_card_controller"
+application.register("user-map-card", UserMapCardController)
