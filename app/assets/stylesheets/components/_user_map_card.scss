@@ -9,8 +9,9 @@
   left: 1rem;
   right: 1rem;
   z-index: 10000;
-  // bottom: -100%;
-  transition: bottom 1s ease;
+  bottom: 0;
+  // transition: bottom 1s ease;
+  // animation: ;
 }
 
 .card-user-header{

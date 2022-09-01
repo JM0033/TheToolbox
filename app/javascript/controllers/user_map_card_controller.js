@@ -7,9 +7,10 @@ export default class extends Controller {
   }
 
 closeUserMapCard() {
-  console.log(this.element)
-  this.element.classList.toggle("card-user-shown")
-  this.element.classList.toggle("card-user")
+  console.log(this.element,"hello")
+  // this.element.classList.toggle("card-user-shown")
+  // this.element.classList.toggle("card-user")
+  this.element.remove()
 }
 
 }
