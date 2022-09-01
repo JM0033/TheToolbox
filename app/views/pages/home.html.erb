@@ -3,6 +3,7 @@
 
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
+  data-map-users-markers-value="<%= @users_markers.to_json %>"
   data-map-user-position-value="<%= [@userLgn, @userLat]%>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <%= render "shared/user_map_card" %>
@@ -31,7 +32,7 @@
       <i class="fa-solid fa-shop"></i>
     </div>
     <div class="text">
-      <p>Bike shops</p>
+      <p data-filter-target="content">Bike shops</p>
     </div>
   </div>
   <div class="filters">
@@ -39,7 +40,7 @@
       <i class="fa-solid fa-campground"></i>
     </div>
     <div class="text">
-      <p>Camp sites</p>
+      <p data-filter-target="content">Camp sites</p>
     </div>
   </div>
   <div class="filters">
@@ -47,7 +48,7 @@
       <i class="fa-solid fa-monument"></i>
     </div>
     <div class="text">
-      <p>Tourism</p>
+      <p data-filter-target="content">Tourism</p>
     </div>
   </div>
 </div>
