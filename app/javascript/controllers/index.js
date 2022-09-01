@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import BikersController from "./bikers_controller"
+application.register("bikers", BikersController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
+
+import FilterController from "./filter_controller"
+application.register("filter", FilterController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
