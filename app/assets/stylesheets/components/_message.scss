@@ -19,7 +19,7 @@
     font-size: 0.75rem;
     color: white;
     p {
-    margin: 0;
+      margin: 0;
     }
   }
 
@@ -40,27 +40,43 @@
       border: 1px rgb(200, 200, 200) solid;
       padding: 8px 16px;
       border-radius: 50px;
-      background-color: white;
+      background-color: lightgrey;
     }
   }
 }
-  // This is what displays the message on the right
+// This is what displays the message on the right
 .message.sender {
   .message-infos {
-   flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
   .message-content {
     flex-direction: row-reverse;
+    p {
+      background-color: white !important;
+    }
   }
 }
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  .message-avatar {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px rgb(200, 200, 200) solid;
+    border-radius: 50%;
+    margin: 0 4px;
+  }
+  .fa-arrow-left {
+    font-size: 30px;
+    margin: 0 20px;
+  }
 }
 
 .card-product img {
@@ -85,4 +101,19 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-index {
+  overflow: hidden;
+  height: 50px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  .fa-arrow-left {
+    font-size: 30px;
+    margin: 0 20px;
+  }
+  h1 {
+    color:white;
+  }
 }
