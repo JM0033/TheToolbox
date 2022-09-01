@@ -13,7 +13,8 @@ class MessagesController < ApplicationController
           # broadcast the current_user's id so it is possible to verify in the
           # stimulus controller if it corresponds or not with
           # the client's current_user
-          user_id: @message.user.id
+          user_id: @message.user.id,
+          username: @message.user.username
         }
       )
       head :ok

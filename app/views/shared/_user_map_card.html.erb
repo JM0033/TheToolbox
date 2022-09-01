@@ -14,8 +14,10 @@
   <div class="card-user-infos">
     <h2> <%= user.bike_model %> </h2>
     <p> <%= user.description %> </p>
-    <div id="btn-user-card">
-      <a href="" class="btn filters btn-long" >Contact <%= user.username %> </a>
-    </div>
+    <%= link_to chatroom_path(user.chatrooms.first), style:"text-decoration:none; color:red;" do%>
+      <div id="btn-user-card">
+        <p class="btn filters btn-long" >Contact <%= user.username %> </p>
+      </div>
+    <%end%>
   </div>
 </div>
