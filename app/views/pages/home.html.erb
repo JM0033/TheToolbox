@@ -19,7 +19,7 @@
     </div>
   </div>
   <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
-    <div class="search">
+    <div class="search" data-bikers-target="btnBikers">
       <div class="icon">
         <i class="fa-solid fa-users"></i>
       </div>
