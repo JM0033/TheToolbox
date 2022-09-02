@@ -31,7 +31,7 @@
 
   <div class="btn-contain container">
     <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "bikeshop" } do %>
-      <div class="filters">
+      <div class="filters" data-filter-target="btnBikeshop">
         <div class="icon">
           <i class="fa-solid fa-shop"></i>
         </div>
@@ -41,7 +41,7 @@
       </div>
     <% end %>
     <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "campsite" } do %>
-      <div class="filters">
+      <div class="filters" data-filter-target="btnCampsite">
         <div class="icon">
           <i class="fa-solid fa-campground"></i>
         </div>
@@ -51,7 +51,7 @@
       </div>
     <% end %>
     <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "tourism" } do %>
-      <div class="filters">
+      <div class="filters" data-filter-target="btnTourism">
         <div class="icon">
           <i class="fa-solid fa-monument"></i>
         </div>
@@ -63,4 +63,3 @@
   </div>
 </div>
   <%= render "shared/footer_navbar" %>
-
