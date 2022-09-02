@@ -95,11 +95,8 @@ end
 puts "Creating Question 1 and answers"
 
 @question1 = Question.new(
-  title: "CHOISIR LA TAILLE DE MON PREMIER VELO",
-  content: "Bonjour,
-  je mesure 1m72, entrejambe 80 cm, je ne sais pas quel taille de velo choisir, on m'a preter un orbea aqua taille 50 cm (axe pedalier haut du tube de la selle), mais je trouve le cadre vraiment petit j'ai fais 2 sorties (50 kms et 75 kms) avec je n'ai pas eu de problème particulier mais j'ai l'impression d'etre vraiment couché sur le vélo est ce normal ?
-  Pouvez vous me conseillez car j'ai peur de me tromper pour l'achat un futur velo
-  merci pour vos conseils",
+  title: "What's the difference of the class ebike?",
+  content: "What is the difference between class 1 electric bike and class 2 electric bike and class 3 electric bicycle? What are the restrictions in the US?",
   user_id: @john.id
 )
 @question1.save!
