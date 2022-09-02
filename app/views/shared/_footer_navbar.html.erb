@@ -1,19 +1,24 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid footer-content">
+  <div class="footer-content">
     <div class="btn-footer">
-      <i class="fa-sharp fa-solid fa-comments-question-check"></i>
-    </div>
-    <div class="btn-footer">
+      <%= link_to root_path, style: "text-decoration: none;" do %>
       <i class="fa-solid fa-house"></i>
+    <% end %>
     </div>
     <div class="btn-footer">
+      <%= link_to questions_path, style: "text-decoration: none;" do %>
       <i class="fa-solid fa-person-circle-question"></i>
+    <% end %>
     </div>
     <div class="btn-footer">
+      <%= link_to root_path, style: "text-decoration: none;" do %>
       <i class="fa-solid fa-calendar"></i>
+    <% end %>
     </div>
     <div class="btn-footer">
+      <%= link_to chatrooms_path, style: "text-decoration: none;" do %>
       <i class="fa-solid fa-comments"></i>
+    <% end %>
     </div>
   </div>
 </div>
