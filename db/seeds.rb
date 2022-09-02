@@ -95,7 +95,7 @@ end
 puts "Creating Question 1 and answers"
 
 @question1 = Question.new(
-  title: "What the difference of the class ebike ?",
+  title: "What's the difference of the class ebike?",
   content: "What is the difference between class 1 electric bike and class 2 electric bike and class 3 electric bicycle? What are the restrictions in the US?",
   user_id: @john.id
 )
