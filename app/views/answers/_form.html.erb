@@ -1,4 +1,4 @@
 <%= simple_form_for [question, answer] do |f| %>
-  <%= f.input :content, label: "" %>
+  <h4><strong><%= f.input :content, as: :text, label: "Your answer", :input_html => {:rows => 5} %></strong></h4>
   <%= f.submit value: "Submit", class: "btn btn-primary" %>
 <% end %>

@@ -14,19 +14,22 @@
         </div>
     </div>
     <h4><strong><%= @question.answers.count %><%= @question.answers.count > 1 ? " answers" : " answer" %></strong></h4>
-      <% @question.answers.each do |answer| %>
-        <div>
-          <p class="border-top" style="padding-top: 15px"><%= answer.content %></p>
-          <div class="answerer-infos">
-            <div style="padding-right: 6px"><p><strong></strong><%= answer.user.username %></p></div>
-            <div><% if answer.user.photo.attached? %>
-              <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
-            <% end %>
+      <% if @question.answers.count > 0 %>
+        <% @question.answers.each do |answer| %>
+          <div>
+            <p class="border-top" style="padding-top: 15px"><%= answer.content %></p>
+            <div class="answerer-infos">
+              <div style="padding-right: 6px"><p><strong></strong><%= answer.user.username %></p></div>
+              <div><% if answer.user.photo.attached? %>
+                <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <p style="padding-top: 15px">There are no answer yet to this question.</p>
       <% end %>
-      <h4><strong>Your answer</strong></h4>
-      <div class="answers-form d-grid gap-2 p-1"><%= render "answers/form", question: @question, answer: @answer %></div>
+      <div class="answers-form d-grid gap-2 border-top" style="padding-top: 15px"><%= render "answers/form", question: @question, answer: @answer %></div>
     </div>
   </div>
 
