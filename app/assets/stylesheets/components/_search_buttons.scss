@@ -6,6 +6,16 @@
   padding: 6px;
   background-color: white;
   border-radius: 8px;
+  border: solid $secondary-dark;
+}
+
+.search-active {
+  background-color: $secondary-light;
+  .text {
+    p {
+      color: white !important;
+    }
+  }
 }
 
 .search .icon {
