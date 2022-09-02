@@ -38,6 +38,7 @@ export default class extends Controller {
     // the current_user's
     // So that, in that case, the message will display on the left
     if (!sender) msgElement.classList.remove('sender')
+    if (!sender) msgElement.querySelector('.username').innerText = data.username
 
     this.#insertMessage(msgElement)
     this.#scrollToBottom()

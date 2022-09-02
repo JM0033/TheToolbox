@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import BikersController from "./bikers_controller"
+application.register("bikers", BikersController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
+
+import FilterController from "./filter_controller"
+application.register("filter", FilterController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
@@ -18,3 +24,6 @@ application.register("question-form", QuestionFormController)
 
 import SearchQuestionsController from "./search_questions_controller"
 application.register("search-questions", SearchQuestionsController)
+
+import UserMapCardController from "./user_map_card_controller"
+application.register("user-map-card", UserMapCardController)

@@ -28,7 +28,10 @@ puts "Creating Users..."
   password: "password",
   description: "This is me. I love strange bikes.",
   biker_status: "athletic",
-  language: "french"
+  language: "french",
+  bike_model: "Fixie bike upgraded",
+  longitude: 50.179973,
+  latitude: 8.538367
 )
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657467718/epx2yy70xnkquezsx57y.jpg")
 @clemence.photo.attach(io: file, filename: "clemence.png", content_type: "image/png")
@@ -40,7 +43,10 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
   password: "password",
   description: "This is me. I love bikes",
   biker_status: "pro",
-  language: "french"
+  language: "french",
+  bike_model: "Supercycle bike",
+  longitude: 50.1155,
+  latitude: 8.6842
 )
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
@@ -52,7 +58,10 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
   password: "password",
   description: "This is me. I love fast bikes.",
   biker_status: "untrained",
-  language: "french"
+  language: "french",
+  bike_model: "Electrical Velib",
+  longitude: 49.998168,
+  latitude: 8.941267
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
@@ -64,7 +73,10 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
   password: "password",
   description: "This is me. I love electrical bikes.",
   biker_status: "athletic",
-  language: "french"
+  language: "french",
+  bike_model: "Race bicycle",
+  longitude: 50.128885,
+  latitude: 8.816698
 )
 file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
