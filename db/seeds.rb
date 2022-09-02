@@ -92,7 +92,7 @@ end
 
 #--------------------------Questions-------------------------------
 
-uts "Creating Question 1 and answers"
+puts "Creating Question 1 and answers"
 
 @question1 = Question.new(
   title: "What's the difference of the class ebike?",
