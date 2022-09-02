@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @ip = "152.89.163.228" # à remplacer par user_ip avant mise en prod
+    @ip = "85.204.70.90" # à remplacer par user_ip avant mise en prod
     results = Geocoder.search(@ip)
     results.first.coordinates
     @userLat = results.first.coordinates[0]

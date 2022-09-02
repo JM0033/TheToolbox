@@ -30,8 +30,8 @@ puts "Creating Users..."
   biker_status: "athletic",
   language: "french",
   bike_model: "Fixie bike upgraded",
-  longitude: 50.179973,
-  latitude: 8.538367
+  longitude: 48.94543121749874,
+  latitude: 2.3937720810502228
 )
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657467718/epx2yy70xnkquezsx57y.jpg")
 @clemence.photo.attach(io: file, filename: "clemence.png", content_type: "image/png")
@@ -45,8 +45,8 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
   biker_status: "pro",
   language: "french",
   bike_model: "Supercycle bike",
-  longitude: 50.1155,
-  latitude: 8.6842
+  longitude: 48.91967485073182,
+  latitude: 2.2858232096292452
 )
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
@@ -60,8 +60,8 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
   biker_status: "untrained",
   language: "french",
   bike_model: "Electrical Velib",
-  longitude: 49.998168,
-  latitude: 8.941267
+  longitude: 48.90501333885613,
+  latitude: 2.3647785906853436
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
@@ -75,8 +75,8 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
   biker_status: "athletic",
   language: "french",
   bike_model: "Race bicycle",
-  longitude: 50.128885,
-  latitude: 8.816698
+  longitude: 48.95226546436605,
+  latitude: 2.3590809492289466
 )
 file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
@@ -109,9 +109,9 @@ puts "Creating Question 1 and answers"
   Class 3, Pedal assit only with 28 mph speed limit, No throttle.
   Class 2, 20 mph speed limit. Pedal assist and throttle.
   Bikes w/o pedals are not ebikes. Motor power limit is 750W.
-  
+
   As each of the 50 states in the USA start to define ebikes, variations of the above definitions appear,.
-  
+
   Today, some sellers call their Class 3, pedal assist and throttle with 28 mph top speed, throttle stops at 20 mph.",
   votes: 4
 )
@@ -145,7 +145,7 @@ puts "Creating Question 2 and answers"
   content: "Hi all.
 
   Had to plug and pump up a 38mm gravel tire on today's ride, and my pump (Silca Tattico) is designed more for road tires; took about 160 strokes to get the tire from squishy to 'just right,' and that was a lot of fun in the high heat and humidity. This got me thinking that I might buy a Lezyne pump designed for higher volume tires from their HV series...The question is, which one? They have quite a few, and it's pretty hard to discern any differences. Produce page here.
-  
+
   Any input and experience appreciated.",
   user_id: @jeannoel.id
 )
@@ -195,7 +195,7 @@ puts "Creating Question 3 and answers"
   content: "Hi, Clemence.
 
   From what I've researched regarding the Trek FX range, is that once you're into the FX 7.7 to 7.9 range, they are basically a carbon Trek Madone or Trek Domane road/race bike with flat bars. Thus, the maximum tire clearance is not a whole lot--28mm max is a good expectation, and you'd have to mount 32s (and measure them) on your own wheels and see if you could mount them on the bike you're looking at.
-  
+
   Lesser Trek FX's throughout the years have normal generous clearances, my 2014 FX 7.3 will clear 42mm tires front and rear. FX 7.4s to 7.6s came with carbon forks instead of aluminum (7.3) or steel (7.2 and less), which is something I've been looking for. My 7.3 is great though, and will handle gravel easily with it's large tires. That is, if I ever bother with gravel. The paint is so pretty and so pristine that my road-biased self just enjoys it on the road (albeit with road bike componentry)!",
   votes: 2
 )
@@ -216,7 +216,7 @@ puts "Creating Question 4 and answers"
   content: "OK. So, tentatively we were planning to tour South Korea next spring but some friends expressed their bucket list desire to tour Thailand. So I looked it up, literally for the first time and found well written article that made it seem awesome. I also like the itinerary's ease: Fly to Bangkok, train to Hat Yai and then bike back to Bangkok following the coast. Leave cooking and camping stuff at home because - Thailand.
 
   Anyone done this route and is there a recommended gpx to go or do you just wing it (which is what I am best at)?
-  
+
   Luggage storage at the airport? Traveling on the train with a tandem or single bicycle?",
   user_id: @jeremy.id
 )
@@ -248,9 +248,9 @@ puts "Creating Question 4 and answers"
   content: "suvarnabumi airport has a left luggage storage outside the secure area. or you could stay at a hotel near the airport with pickup service, stay one night, leave your stuff and bike boxes there in storage. if interested, i'll try to locate the one i stayed in last time.....something like green resort i think, in the lat krabang area just north of the airport.
 
   next morning, bike a mile to the train station just north of the airport, catch the local (NOT during commuter time) to the main station. no baggage car, but you can load your bike into the main cabin. then switch to the southbound with baggage car.
-  
+
   ride back from hat yai to stay in the same hotel for a night, pack your stuff, and use their airport dropoff service next morning.
-  
+
   i did part of that route a decade ago, left bangkok, to kanchaniburi for a few days, then south towards singapore. got fed up with the dogs by the time i hit ratchaburi, so took a train from there to hat yai to start biking again. no stray dogs in the muslim south for some reason.",
   votes: 5
 )
@@ -263,7 +263,7 @@ puts "Creating Question 5 and answers"
   content: "I’m planning to ride my Surly Cross Check in the winter. I have a good, handbuilt wheelset with RH Barlow Pass 38mm (tubed), and an inexpensive Alex wheelset with WTB Venture 40mm (tubeless).
 
   I live outside Toronto. We have proper winter but usually I can ride 1-2x a week throughout winter on roads that are free of snow/ice.
-  
+
   I’m thinking of using the Ventures because of the tread pattern and how it’s better in uncertain conditions than the Rene Herse, and it’s tubeless, and the wheels can take abuse without fuss by me.",
   user_id: @jeremy.id
 )
@@ -295,11 +295,11 @@ puts "Creating Question 6 and answers"
 
   BUT I have a huge problem.
   The wheel doesn't work.
-  
+
   When I barely serve both screws impossible to turn the crankset the hub is as if blocked as if I tighten super hard but it is not the case.
-  
+
   I removed the hubguards to be sure and it's really as if the wheel was blocked. I tight correctly but it’s look like I tighten so hard that the bearing braking.
-  
+
   Would anyone have a solution to that ?",
   user_id: @john.id
 )
@@ -312,7 +312,7 @@ puts "Creating Question 7 and answers"
   content: "I've been riding it over a week with an untrue back wheel (aka Kayak Mode). Today, I checked the wheel because the trouble had become a big issue again, and found I had two (!) broken spokes since replacing the first broken one a week or two ago.
 
   So, why are my spokes snapping like spaghetti? I guess:
-  
+
   Because I was riding without truing the wheel
   Because I'm riding too hard (i.e. coming off curbs)
   Some combination of the two, or something else.
@@ -386,6 +386,24 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661863433/i
 @towerOfLondon.photos.attach(io: file, filename: "towerOfLondon.png", content_type: "image/png")
 @towerOfLondon.save!
 
+@stadeDeFrance = PointOfInterest.new(
+  address: "Rue de la Couture Saint-Quentin, 93200 Saint-Denis",
+  category: "Tourism",
+  name: "Stade de France",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661863433/i3vug1vpu9z6yhbplg1a.jpg")
+@stadeDeFrance.photos.attach(io: file, filename: "towerOfLondon.png", content_type: "image/png")
+@stadeDeFrance.save!
+
+@basiliqueStDenis = PointOfInterest.new(
+  address: "1 Rue de la Légion d'Honneur, 93200 Saint-Denis",
+  category: "Tourism",
+  name: "Basilique de St Denis",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661863433/i3vug1vpu9z6yhbplg1a.jpg")
+@basiliqueStDenis.photos.attach(io: file, filename: "towerOfLondon.png", content_type: "image/png")
+@basiliqueStDenis.save!
+
 @campingArcEnCiel = PointOfInterest.new(
   address: "Les Mazes, 07150 Vallon-Pont-d'Arc",
   category: "Campsite",
@@ -395,32 +413,70 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864018/y
 @campingArcEnCiel.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
 @campingArcEnCiel.save!
 
-@campingLangwiederSee = PointOfInterest.new(
-  address: "Eschenrieder Str. 119, 81249 München, Allemagne",
+@velodrome = PointOfInterest.new(
+  address: "11 Villa du Sud, 93380 Pierrefitte-sur-Seine, France",
   category: "Campsite",
-  name: "Camping Langwieder See",
+  name: "Best wild camping ever!",
 )
 file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
-@campingLangwiederSee.photos.attach(io: file, filename: "campingLangwiederSee.png", content_type: "image/png")
-@campingLangwiederSee.save!
+@velodrome.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
+@velodrome.save!
 
-@roseBikeBerlin = PointOfInterest.new(
-  address: "Lindenstraße 90, 10969 Berlin, Allemagne",
-  category: "Bikeshop",
-  name: "Rose bike Berlin",
+@espaceAngelaDavis = PointOfInterest.new(
+  address: "1 Rue Jack London, 93240 Stains, France",
+  category: "Campsite",
+  name: "Hidden camping spot next to the lake",
 )
-file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864819/gsekds0vhrtshkewb4jh.jpg")
-@roseBikeBerlin.photos.attach(io: file, filename: "roseBikeBerlin.png", content_type: "image/png")
-@roseBikeBerlin.save!
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
+@espaceAngelaDavis.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
+@espaceAngelaDavis.save!
 
-@laBiciAtelierVelo = PointOfInterest.new(
-  address: "21 Rue Maracci, 59800 Lille",
+# @roseBikeBerlin = PointOfInterest.new(
+#   address: "Lindenstraße 90, 10969 Berlin, Allemagne",
+#   category: "Bikeshop",
+#   name: "Rose bike Berlin",
+# )
+# file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864819/gsekds0vhrtshkewb4jh.jpg")
+# @roseBikeBerlin.photos.attach(io: file, filename: "roseBikeBerlin.png", content_type: "image/png")
+# @roseBikeBerlin.save!
+
+# @laBiciAtelierVelo = PointOfInterest.new(
+#   address: "21 Rue Maracci, 59800 Lille",
+#   category: "Bikeshop",
+#   name: "La Bici Atelier Vélo",
+# )
+# file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
+# @laBiciAtelierVelo.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
+# @laBiciAtelierVelo.save!
+
+@bicyclo = PointOfInterest.new(
+  address: "120 Rue Gabriel Péri, 93200 Saint-Denis",
   category: "Bikeshop",
-  name: "La Bici Atelier Vélo",
+  name: "Bicyclo - closed on Fridays",
 )
 file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
-@laBiciAtelierVelo.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
-@laBiciAtelierVelo.save!
+@bicyclo.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
+@bicyclo.save!
+
+@b6klette = PointOfInterest.new(
+  address: "10 Quai de Seine, 93200 Saint-Denis",
+  category: "Bikeshop",
+  name: "b6klette",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
+@b6klette.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
+@b6klette.save!
+
+@bikinnov = PointOfInterest.new(
+  address: "13 Rue de Verdun, 93450 L'Île-Saint-Denis",
+  category: "Bikeshop",
+  name: "bikinnov",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
+@bikinnov.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
+@bikinnov.save!
+
+
 
 puts "POIs seeding sucessfull"
 
