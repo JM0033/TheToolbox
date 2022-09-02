@@ -1,7 +1,7 @@
 
 <div class="card-user" data-controller="user-map-card" data-user-map-card-target="userCard">
   <div class="card-user-header">
-    <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+    <%= cl_image_tag "#{user.photo.key}", alt: "#{user.username}'s avatar", class: 'avatar-bordered'%>
     <div>
       <h1> <%= user.username %> </h1>
       <h2> <%= user.biker_status %> </h2>

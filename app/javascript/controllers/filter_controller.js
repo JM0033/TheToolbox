@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["tourism", "campsite", "bikeshop"]
+  static targets = ["tourism", "campsite", "bikeshop", "btnBikeshop", "btnCampsite", "btnTourism"]
 
   // HTML: data-filter-target="tourism"
   // JS: dataset.filterTarget = "tourism"
@@ -13,6 +13,8 @@ export default class extends Controller {
 
   getCategory(event) {
     event.preventDefault();
+    console.log(event.currentTarget.querySelector('.filters'))
+    event.currentTarget.querySelector('.filters').classList.toggle("filters-active");
 
     const selectedCategory = event.currentTarget.dataset.category
 
