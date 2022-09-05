@@ -3,8 +3,10 @@ class PagesController < ApplicationController
     @ip = "85.204.70.90" # à remplacer par user_ip avant mise en prod
     results = Geocoder.search(@ip)
     results.first.coordinates
-    @userLat = results.first.coordinates[0]
-    @userLgn = results.first.coordinates[1]
+    # @userLat = results.first.coordinates[0]
+    # @userLgn = results.first.coordinates[1]
+    @userLat = -23.154775
+    @userLgn = -68.514170
 
     @points_of_interests = PointOfInterest.all
     # The `geocoded` scope filters only POI with coordinates
