@@ -80,11 +80,17 @@ export default class extends Controller {
   }
 
   #displayCoordinatesOnClick(){
-    const coordinatesMarker = new mapboxgl.Marker
     this.map.on('click', (e) => {
+      const popup = new mapboxgl.Popup().setHTML(e.info_window)
+      const coordinatesMarker = new mapboxgl.Marker({anchor:'center'})
+      .setLngLat([ e.lngLat.lng, e.lngLat.lat ])
+      .setPopup(popup)
+      // .setOffset({y: 0})
+      .addTo(this.map)
       console.log(e)
+      console.log(e.lngLat.lng)
+      console.log(e.lngLat.lat)
       console.log(coordinatesMarker)
-      this.mapboxTarget.insertAdjacentHTML('beforeEnd', coordinatesMarker.user_card)
     })
 
   }
