@@ -5,7 +5,8 @@ export default class extends Controller {
     apiKey: String,
     markers: Array,
     usersMarkers: Array,
-    userPosition: Array
+    userPosition: Array,
+    hideMarkers: Boolean
   }
 
   // static targets = ["content"]
@@ -23,13 +24,14 @@ export default class extends Controller {
     this.#addUserToMap()
     this.#addMarkersToMap()
     this.#addUsersMarkersToMap()
+    this.#displayCoordinatesOnClick()
   }
 
   #addUserToMap() {
     new mapboxgl.Marker()
-      .setLngLat([ this.userPositionValue[0], this.userPositionValue[1] ])
-      .addTo(this.map)
-    }
+    .setLngLat([ this.userPositionValue[0], this.userPositionValue[1] ])
+    .addTo(this.map)
+  }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -43,9 +45,9 @@ export default class extends Controller {
       customMarker.style.width = "30px"
       customMarker.style.height = "40px"
       new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(this.map)
     })
   }
 
@@ -54,21 +56,36 @@ export default class extends Controller {
       console.log("lat:", marker.lat, "lng:", marker.lng, "url:", marker.image_url)
       // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
-      customMarker.className = "marker biker-marker d-none"
+      if (this.hideMarkersValue) {
+        customMarker.className = "marker biker-marker d-none"
+      } else {
+        customMarker.className = "marker biker-marker"
+      }
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
       customMarker.style.width = "30px"
       customMarker.style.height = "40px"
       const bikerMarker = new mapboxgl.Marker(customMarker)
 
-        .setLngLat([ marker.lat, marker.lng ])
-        // .setPopup(popup)
-        .addTo(this.map)
+      .setLngLat([ marker.lng, marker.lat ])
+      // .setPopup(popup)
+      .addTo(this.map)
+      console.log(bikerMarker)
       bikerMarker.getElement().addEventListener('click', () => {
         console.log(marker)
         console.log("Clicked", marker.user_card)
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.user_card)
-       })
+      })
     })
+  }
+
+  #displayCoordinatesOnClick(){
+    const coordinatesMarker = new mapboxgl.Marker
+    this.map.on('click', (e) => {
+      console.log(e)
+      console.log(coordinatesMarker)
+      this.mapboxTarget.insertAdjacentHTML('beforeEnd', coordinatesMarker.user_card)
+    })
+
   }
 }
