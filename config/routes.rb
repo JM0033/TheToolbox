@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :points_of_interests, only: [:index, :show]
 
-  resources :chatrooms, only: %i[ index show ] do
-  resources :messages, only: %i[ create ]
+  resources :chatrooms, only: %i[ index show create] do
+    resources :messages, only: %i[ create ]
   end
 end
