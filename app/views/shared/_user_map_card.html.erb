@@ -14,10 +14,18 @@
   <div class="card-user-infos">
     <h2> <%= user.bike_model %> </h2>
     <p> <%= user.description %> </p>
-    <%= link_to chatroom_path(user.chatrooms.first), style:"text-decoration:none; color:red;" do%>
-      <div id="btn-user-card">
-        <p class="btn filters btn-long" >Contact <%= user.username %> </p>
-      </div>
-    <%end%>
+      <% if current_user.chatroom_with(user) %>
+        <%= link_to chatroom_path(current_user.chatroom_with(user)), style:"text-decoration:none; color:red;" do %>
+          <div id="btn-user-card">
+            <p class="btn filters btn-long" >Contact <%= user.username %> </p>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to chatrooms_path(params: { user_id: user.id }), method: :post, data: { turbo_method: :post }, style:"text-decoration:none; color:red;" do %>
+          <div id="btn-user-card">
+            <p class="btn filters btn-long" >Contact <%= user.username %> </p>
+          </div>
+        <% end %>
+      <% end %>
   </div>
 </div>
