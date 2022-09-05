@@ -143,6 +143,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mapbox-sdk (2.3.3)
+      rest-client (~> 2.1.0)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -219,6 +221,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -303,11 +306,13 @@ DEPENDENCIES
   geocoder
   jbuilder
   jsbundling-rails
+  mapbox-sdk
   pg (~> 1.1)
   pg_search
   pry-byebug
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
+  redis (~> 4.0)
   sassc-rails
   selenium-webdriver
   simple_form!

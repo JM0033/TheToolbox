@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import AddressAutocompleteController from "./address_autocomplete_controller"
+application.register("address-autocomplete", AddressAutocompleteController)
+
 import BikersController from "./bikers_controller"
 application.register("bikers", BikersController)
 
@@ -16,8 +22,6 @@ application.register("filter", FilterController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import MapController from "./map_controller"
-application.register("map", MapController)
 
 import QuestionFormController from "./question_form_controller"
 application.register("question-form", QuestionFormController)
