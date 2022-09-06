@@ -24,9 +24,9 @@ export default class extends Controller {
     this.geocoder.addTo(this.containerTarget)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-    // if (this.traceRouteValue) {
-    //   this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
-    // }
+    if (this.traceRouteValue) {
+      this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
+    }
   }
 
   #setInputValue(event) {
@@ -34,7 +34,6 @@ export default class extends Controller {
     this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
     this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
     window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 });
-
   }
 
   traceRouteFromMeetingPoint(lat, lng) {
