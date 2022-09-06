@@ -10,7 +10,7 @@ export default class extends Controller {
     userPosition: Array
   }
 
-    static targets = ["address"]
+    static targets = ["container", "address", "mapbox"]
 
 
   connect() {
@@ -18,7 +18,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
-    this.geocoder.addTo(this.element)
+    this.geocoder.addTo(this.containerTarget)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
 
@@ -100,6 +100,27 @@ export default class extends Controller {
              'line-width': 5
             }
           });
+          const hours = Math.floor(data.duration / 3600);
+          const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
+          const seconds = data.duration - (hours * 3600) - (minutes * 60);
+          let timeString = hours.toString().padStart(2, '0') + ':' +
+          minutes.toString().padStart(2, '0') + ':' +
+          seconds.toString().padStart(2, '0');
+          const partial = `
+            <div class="card-user" >
+              <div class="card-user-header">
+                Duration: ${timeString} min
+              </div>
+              <div class="card-user-infos">
+                Distance: ${data.distance / 1000} km
+              </div>
+            </div>
+            `
+
+
+
+
+          this.mapboxTarget.insertAdjacentHTML('beforeEnd', partial)
         }
         // const instructions = document.getElementById('instructions');
         // const duration = data.duration;
@@ -113,6 +134,7 @@ export default class extends Controller {
         //  data.duration / 60
         // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
     })
+
   }
   // input(event) {
   //   console.log(event.target.value)
