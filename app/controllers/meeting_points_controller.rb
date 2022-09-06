@@ -20,8 +20,8 @@ class MeetingPointsController < ApplicationController
     @meeting_point.requestor = current_user
     @meeting_point.helper = User.find(params[:user_id])
     @meeting_point.status = "pending"
-    @meeting_point.latitude = (params[:latitude])
-    @meeting_point.longitude = (params[:longitude])
+    @meeting_point.latitude = (params[:meeting_point][:latitude])
+    @meeting_point.longitude = (params[:meeting_point][:longitude])
     if @meeting_point.save!
       redirect_to chatrooms_path
     else

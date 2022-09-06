@@ -1,3 +1,4 @@
+  <h1>Select a point on the map and a meeting date</h1>
   <div  class="map d-flex flex-direction-column" style="width: 100%; height: 100vh;"
     data-controller="map-meeting-point"
     data-map-meeting-point-users-markers-value="<%= @users_markers.to_json %>"
@@ -5,12 +6,11 @@
     data-map-meeting-point-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
     <div  class="mapboxForm" data-map-meeting-point-target='mapbox'>
-      Select a meeting date:
       <%= simple_form_for([@helper, @meeting_point]) do |f| %>
-        <%= f.input :date, as: :date %>
+        <%= f.input :date, as: :date, html5:true, label: false %>
         <%= f.input :latitude, label: false, input_html: {data: {map_meeting_point_target: "lat"}, class: 'hidden' }%>
         <%= f.input :longitude, label: false, input_html: {data: {map_meeting_point_target: "long"}, class: 'hidden' }%>
-        <%= f.button :submit, 'Send meeting request', class: 'btn-contain hidden', data: {map_meeting_point_target: "btn"}%>
+        <%= f.button :submit, 'Send meeting request', class: 'btn filters btn-long btn-contain hidden', data: {map_meeting_point_target: "btn"}%>
       <% end %>
     </div>
   </div>
