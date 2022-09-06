@@ -36,9 +36,7 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
-      customMarker.className = "marker d-none"
       // ex: data-filter-target="tourism"
       customMarker.dataset.filterTarget = marker.category.toLowerCase()
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
@@ -47,8 +45,14 @@ export default class extends Controller {
       customMarker.style.height = "40px"
       new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
       .addTo(this.map)
+      console.log(marker)
+      const poiMarker = new mapboxgl.Marker(customMarker)
+      poiMarker.getElement().addEventListener('click', () => {
+        console.log(marker)
+        console.log("Clicked", marker.info_card)
+        this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.info_card)
+      })
     })
   }
 

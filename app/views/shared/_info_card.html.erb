@@ -1,0 +1,19 @@
+<div class="small-card" data-controller="small-card" data-small-card-target="infoCard">
+  <div class="small-card-header">
+    <div>
+      <h1> <%= poi.name %> </h1>
+    </div>
+    <div class="header-second-column">
+      <i class="fa-solid fa-square-xmark" data-action="click->infoCard#closePoiInfoCard"></i>
+      <p> <%= poi.category %> </p>
+    </div>
+  </div>
+  <div class="small-card-infos">
+    <p> <%= poi.address%> </p>
+    <%= link_to root_path(), style:"text-decoration:none; color:red;" do %>
+      <div id="btn-small-card">
+        <p class="btn filters btn-long">Details</p>
+      </div>
+    <% end %>
+  </div>
+</div>

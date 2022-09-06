@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         category: point_of_interest.category,
         lat: point_of_interest.latitude,
         lng: point_of_interest.longitude,
-        info_window: render_to_string(partial: "points_of_interests/info_window", locals: { point_of_interest: point_of_interest }),
+        info_card: render_to_string(partial: "shared/info_card", locals: { poi: point_of_interest }),
         image_url: helpers.asset_url("#{point_of_interest.category}.png")
       }
     end
