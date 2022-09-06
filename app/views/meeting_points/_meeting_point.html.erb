@@ -1,5 +1,5 @@
 <div class="question-container border-bottom" style="padding-top: 15px">
-  <h4><strong><%= link_to "Launch itinerary", root_path, style: "text-decoration: none;" %></strong></h4>
+  <h4><strong><%= link_to "Launch itinerary", root_path(trace_route: true, lat: meeting_point.latitude, lng: meeting_point.longitude), style: "text-decoration: none;" %></strong></h4>
   <p><strong>When: </strong><%= meeting_point.date_time.strftime("%m/%d/%Y at %I:%M%p") %></p>
   <div class="question-info">
     <div class="answer-count-infos">

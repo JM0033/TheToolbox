@@ -7,10 +7,12 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    userPosition: Array
+    userPosition: Array,
+    traceRoute: Boolean,
+    routeCoordinates: Array
   }
 
-    static targets = ["address"]
+    static targets = ["container", "address", "mapbox"]
 
 
   connect() {
@@ -18,19 +20,26 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
-    this.geocoder.addTo(this.element)
-    // console.log(this.element)
+    this.geocoder.addTo(this.containerTarget)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-
+    if (this.traceRouteValue) {
+      this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
+    }
   }
 
   #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
-    // console.log(event.result)
-    this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
-    this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
-    window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 })
+    this.addressTarget.value = event.result["place_name"];
+    this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+    this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+    window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 });
+
+  }
+
+  traceRouteFromMeetingPoint(lat, lng) {
+    this.#addCustomToMap(lat, lng)
+    this.#addRoute(lat, lng)
+    window.map.fitBounds([this.userPositionValue, [lat, lng]], { padding: 50 })
   }
 
   #clearInputValue() {
@@ -101,10 +110,31 @@ export default class extends Controller {
              'line-width': 5
             }
           });
+          const hours = Math.floor(data.duration / 3600);
+          const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
+          const seconds = data.duration - (hours * 3600) - (minutes * 60);
+          let timeString = hours.toString().padStart(2, '0') + ':' +
+          minutes.toString().padStart(2, '0') + ':' +
+          seconds.toString().padStart(2, '0');
+          const partial = `
+            <div class="card-user" >
+              <div class="card-user-header">
+                Duration: ${timeString} min
+              </div>
+              <div class="card-user-infos">
+                Distance: ${data.distance / 1000} km
+              </div>
+            </div>
+            `
+
+
+
+
+          this.mapboxTarget.insertAdjacentHTML('beforeEnd', partial)
         }
         // const instructions = document.getElementById('instructions');
-        // const duration = data.routes;
-        // console.log(data.results)
+        // const duration = data.duration;
+        // const distance = data.duration;
 
         // let tripInstructions = '';
         // for (const step of steps) {
@@ -114,6 +144,7 @@ export default class extends Controller {
         //  data.duration / 60
         // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
     })
+
   }
   // input(event) {
   //   console.log(event.target.value)
