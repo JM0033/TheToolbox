@@ -22,18 +22,13 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [this.userPositionValue[0], this.userPositionValue[1]],
+      center: [this.userPositionValue[1], this.userPositionValue[0]],
       zoom: 12
     })
-    this.#addUserToMap()
+    console.log(this.userPositionValue)
     this.#addUsersMarkersToMap()
+    this.#fitMapToMarkers()
     this.#displayCoordinatesOnClick()
-  }
-
-  #addUserToMap() {
-    new mapboxgl.Marker()
-    .setLngLat([ this.userPositionValue[0], this.userPositionValue[1] ])
-    .addTo(this.map)
   }
 
   #addUsersMarkersToMap() {
@@ -53,6 +48,12 @@ export default class extends Controller {
       .addTo(this.map)
       console.log(bikerMarker)
     })
+  }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.usersMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 90, maxZoom: 10, duration: 0 })
   }
 
   #displayCoordinatesOnClick(){
