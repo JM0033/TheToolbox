@@ -60,8 +60,8 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
   biker_status: "untrained",
   language: "french",
   bike_model: "Electrical Velib",
-  longitude: -66.693145,
-  latitude: -23.090589
+  longitude: -67.806092,
+  latitude: -22.921607
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
@@ -764,6 +764,15 @@ file = URI.open("https://media.tacdn.com/media/attractions-splice-spp-720x480/0b
 file = URI.open("https://media.cntraveller.com/photos/611bf40980db5ca184e71539/16:9/w_1280,c_limit/atacama_camp_8apr11_pr.jpg")
 @campingElSol.photos.attach(io: file, filename: "campingElSol.png", content_type: "image/png")
 @campingElSol.save!
+
+@campingDeLaLaguna = PointOfInterest.new(
+  address: "Laguna Blanca, San Pablo, Bolivia",
+  category: "Campsite",
+  name: "Camping de La Laguna",
+)
+file = URI.open("https://images.rove.me/w_1920,q_85/bmtiqt2fpkjcmrb5ioab/bolivia-hiking.jpg")
+@campingDeLaLaguna.photos.attach(io: file, filename: "campingDeLaLaguna.png", content_type: "image/png")
+@campingDeLaLaguna.save!
 
 # @roseBikeBerlin = PointOfInterest.new(
 #   address: "Lindenstraße 90, 10969 Berlin, Allemagne",
