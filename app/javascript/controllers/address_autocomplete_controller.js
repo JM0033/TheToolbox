@@ -61,7 +61,10 @@ export default class extends Controller {
     })
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      console.log("data points :", data.points);
+      console.log("data duration :", data.duration);
+      console.log("data distance :", data.distance);
+
       // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
         if (routeSource) {

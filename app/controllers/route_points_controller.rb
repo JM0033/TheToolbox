@@ -7,8 +7,8 @@ class RoutePointsController < ApplicationController
     @userLgn = results.first.coordinates[1]
     @coordinates = params[:coordinates]
     route_coordinates = [{ "longitude" => @userLgn, "latitude" => @userLat }, @coordinates]
-    points = GetRoutePoints.new(route_coordinates).call
-    render json: { points: points }.to_json
+    results = GetRoutePoints.new(route_coordinates).call # Hash points/distance/duration
+    render json: { points: results[:points], distance: results[:distance], duration: results[:duration] }.to_json
   end
 
   private
