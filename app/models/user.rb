@@ -21,4 +21,12 @@ class User < ApplicationRecord
 
   reverse_geocoded_by :latitude, :longitude
   # after_validation :reverse_geocode
+
+  def specific_chatroom(user)
+    Chatroom.where(first_user: self, second_user: user).first || Chatroom.where(first_user: user, second_user: self).first
+  end
+
+  def chatroom_with(user)
+    Chatroom.find_by(first_user: self, second_user: user) || Chatroom.find_by(first_user: user, second_user: self)
+  end
 end

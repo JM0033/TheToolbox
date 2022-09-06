@@ -15,10 +15,12 @@
     <div class="icon">
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <div class="text">
-      <p>Where are we going?</p>
+
+    <div class="text" data-controller="address-autocomplete" data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <input class="text-input" type="text" data-address-autocomplete-target="address" data-action="input->address-autocomplete#input" placeholder="Where do you want to go?">
     </div>
   </div>
+
   <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
     <div class="search" data-bikers-target="btnBikers">
       <div class="icon">

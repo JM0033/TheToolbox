@@ -1,5 +1,11 @@
-<div class="poi_card">
-<p><%= point_of_interest.name  %></p>
-<p><%= point_of_interest.address  %></p>
-  <%# <%= render 'points_of_interests/poi_card', point_of_interest: point_of_interest %>
+<div class="poi-card">
+  <%# <div> %>
+    <%#= cl_image_tag "#{point_of_interest.photo.key}", alt: "#{point_of_interest.name}'s image", class: 'poi-image'%>
+  <%# </div> %>
+  <div>
+    <p><%= point_of_interest.name  %></p>
+    <p><%= point_of_interest.address  %></p>
+  </div>
+    <%# <%= render 'points_of_interests/poi_card', point_of_interest: point_of_interest %>
 </div>
+

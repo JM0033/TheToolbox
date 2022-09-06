@@ -22,11 +22,14 @@
   justify-self: flex-start;
   margin-left: 12px;
 }
-
+.text-input {
+  display: none;
+}
 .text p {
   margin: 0;
 }
 .search .text {
+  flex: 1;
   margin: auto;
 }
 
