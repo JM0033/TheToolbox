@@ -27,7 +27,7 @@ export default class extends Controller {
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
-    console.log(event.result)
+    // console.log(event.result)
     this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 })
@@ -61,7 +61,11 @@ export default class extends Controller {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
+      console.log("data points :", data.points);
+      console.log("data duration :", data.duration);
+      console.log("data distance :", data.distance);
+
+      // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
         if (routeSource) {
           routeSource.setData({
@@ -98,6 +102,17 @@ export default class extends Controller {
             }
           });
         }
+        // const instructions = document.getElementById('instructions');
+        // const duration = data.routes;
+        // console.log(data.results)
+
+        // let tripInstructions = '';
+        // for (const step of steps) {
+        //   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+        // }
+        // instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+        //  data.duration / 60
+        // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
     })
   }
   // input(event) {

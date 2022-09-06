@@ -54,7 +54,7 @@ export default class extends Controller {
 
   #addUsersMarkersToMap() {
     this.usersMarkersValue.forEach((marker) => {
-      console.log("lat:", marker.lat, "lng:", marker.lng, "url:", marker.image_url)
+      // console.log("lat:", marker.lat, "lng:", marker.lng, "url:", marker.image_url)
       // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
       if (this.hideMarkersValue) {
