@@ -3,8 +3,8 @@ class RoutePointsController < ApplicationController
     @ip = "85.204.70.90" # à remplacer par user_ip avant mise en prod
     results = Geocoder.search(@ip)
     results.first.coordinates
-    @userLat = results.first.coordinates[0]
-    @userLgn = results.first.coordinates[1]
+    @userLat = -23.097688
+    @userLgn = -68.090525
     @coordinates = params[:coordinates]
     route_coordinates = [{ "longitude" => @userLgn, "latitude" => @userLat }, @coordinates]
     results = GetRoutePoints.new(route_coordinates).call # Hash points/distance/duration
