@@ -1,0 +1,5 @@
+    <div class="questions-container border-top" id="toto">
+      <% @meeting_points.each do |meeting_point| %>
+        <%= render "meeting_points/meeting_point", meeting_point: meeting_point %>
+      <% end %>
+    </div>

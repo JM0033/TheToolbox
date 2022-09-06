@@ -13,6 +13,11 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+.mapboxgl-canvas{
+  position:relative;
+}
+
 .geocoder {
   position: absolute;
   z-index: 1;

@@ -29,10 +29,17 @@
       <%= f.input :content,
         as: :string,
         label: false,
-        placeholder: 'Doodoo...',
+        placeholder: 'Your message...',
         wrapper_html: { class: 'form-outline flex-grow-1' },
         input_html: { class: 'form-control' } %>
       <%= f.submit "Send", class: 'btn btn-primary-light mb-3 d-none' %>
     <% end %>
+
+    <%= link_to new_user_meeting_point_path(@chatroom.interlocutor_of(current_user)), style:"text-decoration:none; color:red;" do%>
+      <div id="btn-user-card">
+        <p class="btn filters btn-long" >Set up a meeting with <%= @chatroom.interlocutor_of(current_user).username %> </p>
+      </div>
+    <%end%>
+
 </div>
   <%= render "shared/footer_navbar" %>

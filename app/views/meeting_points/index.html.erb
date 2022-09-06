@@ -1,0 +1,13 @@
+<div class="container" style="padding: 15px 15px 15px 15px">
+  <div class="container" style="background-color: white; padding: 25px 15px 15px 15px; border-radius: 8px">
+    <div class="questions-container">
+      <div style="display: flex; justify-content: space-between">
+        <h1><strong>All meetings</strong></h1>
+      </div>
+      <%# Questions list %>
+      <h5><strong><%= @meeting_points.count %><%= @meeting_points.count > 1 ? " upcoming meetings" : " upcoming meeting" %></strong></h5>
+      <%= render "list" %>
+    </div>
+  </div>
+</div>
+  <%= render "shared/footer_navbar" %>
