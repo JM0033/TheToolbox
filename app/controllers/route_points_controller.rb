@@ -1,4 +1,5 @@
 class RoutePointsController < ApplicationController
+  before_action :getUserCoordinates, only: :get_points
   def get_points
     @ip = "85.204.70.90" # à remplacer par user_ip avant mise en prod
     results = Geocoder.search(@ip)

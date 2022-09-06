@@ -16,6 +16,7 @@ export default class extends Controller {
 
 
   connect() {
+    console.log("connected to address-autocomplete")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
@@ -23,9 +24,9 @@ export default class extends Controller {
     this.geocoder.addTo(this.containerTarget)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-    if (this.traceRouteValue) {
-      this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
-    }
+    // if (this.traceRouteValue) {
+    //   this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
+    // }
   }
 
   #setInputValue(event) {
@@ -58,6 +59,7 @@ export default class extends Controller {
 
   #addRoute(lat, lng) {
     const csrfToken = document.getElementsByName("csrf-token")[0].content;
+    console.log({coordinates:{ longitude: lat, latitude: lng }})
 
     fetch("/get_route_points", {
       method: "POST",
@@ -126,11 +128,7 @@ export default class extends Controller {
               </div>
             </div>
             `
-
-
-
-
-          this.mapboxTarget.insertAdjacentHTML('beforeEnd', partial)
+          this.mapboxTarget.insertAdjacentHTML('beforeEnd', partial);
         }
         // const instructions = document.getElementById('instructions');
         // const duration = data.duration;

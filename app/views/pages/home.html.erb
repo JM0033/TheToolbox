@@ -1,7 +1,10 @@
   <%= render "shared/navbar" %>
 
 <div data-controller="filter bikers address-autocomplete" data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>"
-    data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-address-autocomplete-trace-route-value="<%= params[:trace_route] %>"
+    data-address-autocomplete-route-coordinates-value="<%= [params[:lat], params[:lng]] %>"
+    >
 
   <div class="map" style="width: 100%; height: 74vh;"
     data-controller="map"
@@ -19,13 +22,7 @@
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
 
-
-    <div class="text" data-address-autocomplete-target="container"
-         data-controller="address-autocomplete"
-         data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>"
-         data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-         data-address-autocomplete-trace-route-value="<%= params[:trace_route] %>"
-         data-address-autocomplete-route-coordinates-value="<%= [params[:lat], params[:lng]] %>">
+    <div class="text" data-address-autocomplete-target="container">
       <input class="text-input" type="text" data-address-autocomplete-target="address" data-action="input->address-autocomplete#input" placeholder="Where do you want to go?">
     </div>
   </div>
