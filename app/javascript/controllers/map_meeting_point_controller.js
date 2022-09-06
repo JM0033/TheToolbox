@@ -9,28 +9,27 @@ export default class extends Controller {
   }
 
   // static targets = ["content"]
-  static targets = ["mapbox"]
+  static targets = ["btn", "lat", "long"]
 
   connect() {
     console.log("connected to map_meeting_point controller")
+    console.log(this.latTarget)
+    console.log(this.longTarget)
+    console.log(this.btnTarget)
+    console.log('Coucou from meeting point controller')
     mapboxgl.accessToken = this.apiKeyValue
     this.clickMarker = new mapboxgl.Marker()
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [this.userPositionValue[0], this.userPositionValue[1]],
+      center: [this.userPositionValue[1], this.userPositionValue[0]],
       zoom: 12
     })
-    this.#addUserToMap()
+    console.log(this.userPositionValue)
     this.#addUsersMarkersToMap()
+    this.#fitMapToMarkers()
     this.#displayCoordinatesOnClick()
-  }
-
-  #addUserToMap() {
-    new mapboxgl.Marker()
-    .setLngLat([ this.userPositionValue[0], this.userPositionValue[1] ])
-    .addTo(this.map)
   }
 
   #addUsersMarkersToMap() {
@@ -52,22 +51,28 @@ export default class extends Controller {
     })
   }
 
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.usersMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 90, maxZoom: 10, duration: 0 })
+  }
+
   #displayCoordinatesOnClick(){
     this.map.on('click', (e) => {
-      // const popup = new mapboxgl.Popup().setHTML(e.info_window)
       this.clickMarker
       .setLngLat([ e.lngLat.lng, e.lngLat.lat ])
-      // .setPopup(popup)
-      // .setOffset({y: 0})
       .addTo(this.map)
       console.log(e)
       console.log(e.lngLat.lng)
       console.log(e.lngLat.lat)
-
-
-
-      // modif a faire pour faire AFFICHER LA partial map_card -> ou injecter code HTML dans formulaire
-      this.mapboxTarget.insertAdjacentHTML('afterEnd', e.map_card)
+      this.#displayButton()
+      this.latTarget.value= e.lngLat.lat
+      this.longTarget.value= e.lngLat.lng
     })
   }
+
+  #displayButton(){
+    this.btnTarget.classList.remove('hidden')
+  }
+
 }

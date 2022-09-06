@@ -1,0 +1,14 @@
+.mapboxForm{
+  position: absolute;
+  bottom: 40px;
+  z-index: 14;
+  background-color: $main-light;
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+
+}
+
+.hidden{
+  display: none;
+}
