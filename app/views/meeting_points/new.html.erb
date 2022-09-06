@@ -7,7 +7,7 @@
 
     <div  class="mapboxForm" data-map-meeting-point-target='mapbox'>
       <%= simple_form_for([@helper, @meeting_point]) do |f| %>
-        <%= f.input :date, as: :date, html5:true, label: false %>
+        <%= f.input :date, as: :datetime, html5:true, label: false %>
         <%= f.input :latitude, label: false, input_html: {data: {map_meeting_point_target: "lat"}, class: 'hidden' }%>
         <%= f.input :longitude, label: false, input_html: {data: {map_meeting_point_target: "long"}, class: 'hidden' }%>
         <%= f.button :submit, 'Send meeting request', class: 'btn filters btn-long btn-contain hidden', data: {map_meeting_point_target: "btn"}%>
