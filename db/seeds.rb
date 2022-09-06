@@ -30,8 +30,8 @@ puts "Creating Users..."
   biker_status: "athletic",
   language: "french",
   bike_model: "Fixie bike upgraded",
-  longitude: -22.910626,
-  latitude: -68.201880
+  longitude: -68.201880,
+  latitude: -22.910626
 )
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657467718/epx2yy70xnkquezsx57y.jpg")
 @clemence.photo.attach(io: file, filename: "clemence.png", content_type: "image/png")
@@ -45,8 +45,8 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
   biker_status: "pro",
   language: "french",
   bike_model: "Supercycle bike",
-  longitude: -23.154775,
-  latitude: -68.514170
+  longitude: -68.514170,
+  latitude: -23.154775
 )
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
@@ -56,12 +56,12 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
   username: "jeannoel",
   email: "jeannoel@bike.com",
   password: "password",
-  description: "This is me. I love fast bikes.",
+  description: "This is me I love fast bikes.",
   biker_status: "untrained",
   language: "french",
   bike_model: "Electrical Velib",
-  longitude: -23.090589,
-  latitude: -66.693145
+  longitude: -67.806092,
+  latitude: -22.921607
 )
 file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
@@ -75,14 +75,12 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
   biker_status: "athletic",
   language: "french",
   bike_model: "Race bicycle",
-  longitude: 48.95226546436605,
-  latitude: 2.3590809492289466
+  longitude: -68.714867,
+  latitude: -22.445171
 )
 file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.photo.attach(io: file, filename: "john.png", content_type: "image/png")
 @john.save!
-
-
 
 @diane = User.new(
   username: "diane",
@@ -92,8 +90,8 @@ file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
   biker_status: "pro",
   language: "french",
   bike_model: "Gravel bike",
-  longitude: -22.913778,
-  latitude: -68.286470
+  longitude: -68.286470,
+  latitude: -22.913778
 )
 file = URI.open("https://ca.slack-edge.com/T02NE0241-UDF8DJTMM-7c86d3baa559-512")
 @diane.photo.attach(io: file, filename: "diane.png", content_type: "image/png")
@@ -107,13 +105,12 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-UDF8DJTMM-7c86d3baa559-512"
   biker_status: "pro",
   language: "english",
   bike_model: "Triban RC500 SORA/PROWHEEL",
-  longitude: -22.915594,
-  latitude: -68.193172
+  longitude: -68.193172,
+  latitude: -22.915594
 )
 file = URI.open("https://ca.slack-edge.com/T02NE0241-UP3USJP7F-55bf4dafd2c6-512")
 @paul.photo.attach(io: file, filename: "paul.png", content_type: "image/png")
 @paul.save!
-
 
 
 #--------------------------Chatrooms-------------------------------
@@ -605,7 +602,7 @@ puts "Creating Question 15 and answers"
 puts "Creating POIs..."
 
 @ValledelaLuna = PointOfInterest.new(
-  address: "3PF6+MR Collo, San Pedro de Atacama, Chili",
+  address: "Zapar, Chili",
   category: "Tourism",
   name: "Valle de la Luna",
 )
@@ -614,7 +611,7 @@ file = URI.open("https://media.tacdn.com/media/attractions-splice-spp-674x446/07
 @ValledelaLuna.save!
 
 @lagunasEscondidasdeBaltinache = PointOfInterest.new(
-  address: "Desvío ruta, B-241, San Pedro de Atacama, Chili",
+  address: "Salar de Atacama, Chili",
   category: "Tourism",
   name: "Lagunas Escondidas de Baltinache",
 )
@@ -623,7 +620,7 @@ file = URI.open("https://cdn.getyourguide.com/img/tour/5e8dec2e155e9.jpeg/146.jp
 @lagunasEscondidasdeBaltinache.save!
 
 @reservaLosFlamencos = PointOfInterest.new(
-  address: "Ruta 27, San Pedro de Atacama, Antofagasta, Chili",
+  address: "Los Flamencos National Reserve, Antofagasta, Chili",
   category: "Tourism",
   name: "Reserva Nacional Los Flamencos",
 )
@@ -632,7 +629,7 @@ file = URI.open("http://www.turismochile.com/wp-content/uploads/2015/11/turismoc
 @reservaLosFlamencos.save!
 
 @gargantaDelDiablo = PointOfInterest.new(
-  address: "4QPP+85 San Pedro de Atacama, Chili",
+  address: "Toconao, Chili",
   category: "Tourism",
   name: "Garganta del Diablo",
 )
@@ -641,13 +638,31 @@ file = URI.open("https://www.tangol.com/Fotos/Tours/quitor-y-catarpe-en-biciclet
 @gargantaDelDiablo.save!
 
 @observatorio = PointOfInterest.new(
-  address: "Av. Tulor, Antofagasta, San Pedro de Atacama 1410000, Chili",
+  address: "Coyo, Chili",
   category: "Tourism",
   name: "Observatorio Hemisferio Sur",
 )
 file = URI.open("https://www.observatoriocielosur.cl/imagenes/servicios/dest_01.jpg")
 @observatorio.photos.attach(io: file, filename: "observatorio.png", content_type: "image/png")
 @observatorio.save!
+
+@reservaAvaroa = PointOfInterest.new(
+  address: "Eduardo Avaroa andean fauna national reserve, Bolivia",
+  category: "Tourism",
+  name: "Eduardo Avaroa, Andean fauna National Reserve",
+)
+file = URI.open("https://lacgeo.com/sites/default/files/llama_laguna_colorada_bolivia_opt%20%281%29.jpg")
+@reservaAvaroa.photos.attach(io: file, filename: "reservaAvaroa.png", content_type: "image/png")
+@reservaAvaroa.save!
+
+@cascadasRioLoa = PointOfInterest.new(
+  address: "Enaex Planta Rio Loa, Chile",
+  category: "Tourism",
+  name: "Las Cascadas Río Loa",
+)
+file = URI.open("https://live.staticflickr.com/3643/3565914426_f3c30cdac4_b.jpg")
+@cascadasRioLoa.photos.attach(io: file, filename: "cascadasRioLoa.png", content_type: "image/png")
+@cascadasRioLoa.save!
 
 @eiffelTower = PointOfInterest.new(
   address: "5 Avenue Anatole France, 75007 Paris, France",
@@ -712,6 +727,53 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/d
 @espaceAngelaDavis.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
 @espaceAngelaDavis.save!
 
+
+
+@campingDeQuitor = PointOfInterest.new(
+  address: "Pukara de Quitor, Quitor, Chile",
+  category: "Campsite",
+  name: "Camping de Quitor",
+)
+file = URI.open("https://cf.bstatic.com/images/hotel/max600/181/181375817.jpg")
+@campingDeQuitor.photos.attach(io: file, filename: "campingDeQuitor.png", content_type: "image/png")
+@campingDeQuitor.save!
+
+@campingAltoAtacama = PointOfInterest.new(
+  address: "Santuario de la Naturaleza Valle de la Luna y sierra de Orbate, Chile",
+  category: "Campsite",
+  name: "Camping Alto Atacama",
+)
+file = URI.open("https://www.nasa.gov/sites/default/files/thumbnails/image/arads6_img_1873.jpg")
+@campingAltoAtacama.photos.attach(io: file, filename: "campingAltoAtacama.png", content_type: "image/png")
+@campingAltoAtacama.save!
+
+@campingLaDona = PointOfInterest.new(
+  address: "Ojo de Opache, Calama, Chile",
+  category: "Campsite",
+  name: "Camping La Dona",
+)
+file = URI.open("https://media.tacdn.com/media/attractions-splice-spp-720x480/0b/18/fc/61.jpg")
+@campingLaDona.photos.attach(io: file, filename: "campingLaDona.png", content_type: "image/png")
+@campingLaDona.save!
+
+@campingElSol = PointOfInterest.new(
+  address: "Parque Pozo 3, Chile",
+  category: "Campsite",
+  name: "Camping El Sol",
+)
+file = URI.open("https://media.cntraveller.com/photos/611bf40980db5ca184e71539/16:9/w_1280,c_limit/atacama_camp_8apr11_pr.jpg")
+@campingElSol.photos.attach(io: file, filename: "campingElSol.png", content_type: "image/png")
+@campingElSol.save!
+
+@campingDeLaLaguna = PointOfInterest.new(
+  address: "Laguna Blanca, San Pablo, Bolivia",
+  category: "Campsite",
+  name: "Camping de La Laguna",
+)
+file = URI.open("https://images.rove.me/w_1920,q_85/bmtiqt2fpkjcmrb5ioab/bolivia-hiking.jpg")
+@campingDeLaLaguna.photos.attach(io: file, filename: "campingDeLaLaguna.png", content_type: "image/png")
+@campingDeLaLaguna.save!
+
 # @roseBikeBerlin = PointOfInterest.new(
 #   address: "Lindenstraße 90, 10969 Berlin, Allemagne",
 #   category: "Bikeshop",
@@ -756,6 +818,44 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f
 file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
 @bikinnov.photos.attach(io: file, filename: "laBiciAtelierVelo.png", content_type: "image/png")
 @bikinnov.save!
+
+
+
+@bikinnov = PointOfInterest.new(
+  address: "Hurtado de Mendoza 2851-2801, Calama, Chile",
+  category: "Bikeshop",
+  name: "bikinnov",
+)
+file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864950/f2fap4jdfrcxm9akeyth.jpg")
+@bikinnov.photos.attach(io: file, filename: "bikinnov.png", content_type: "image/png")
+@bikinnov.save!
+
+@tiendaBici = PointOfInterest.new(
+  address: "Valdivia 1201, Calama, Antofagasta, Chile",
+  category: "Bikeshop",
+  name: "Tienda Bici",
+)
+file = URI.open("https://davesbikeshop.com/wp-content/uploads/Inside-5_cropped.jpg")
+@tiendaBici.photos.attach(io: file, filename: "tiendaBici.png", content_type: "image/png")
+@tiendaBici.save!
+
+@bicimarket = PointOfInterest.new(
+  address: "Sendero B 925, 935, Calama, Antofagasta, Chile",
+  category: "Bikeshop",
+  name: "Bicimarket",
+)
+file = URI.open("https://www.citybike-shop.com/wp-content/uploads/2017/06/velo-tout-chemin-vtc.jpg")
+@bicimarket.photos.attach(io: file, filename: "bicimarket.png", content_type: "image/png")
+@bicimarket.save!
+
+@superBici = PointOfInterest.new(
+  address: "Aconcagua 965, Antofagasta, Chili",
+  category: "Bikeshop",
+  name: "Super Bici",
+)
+file = URI.open("https://www.tallerdebicicletas.com/imagenes/Taller%20de%20Bicicletas%20-%20Sevilla.jpg")
+@superBici.photos.attach(io: file, filename: "superBici.png", content_type: "image/png")
+@superBici.save!
 
 
 
