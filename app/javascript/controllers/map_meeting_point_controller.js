@@ -65,7 +65,7 @@ export default class extends Controller {
 
 
 
-      // modif a faire pour faire AFFICHER LA partial map_card
+      // modif a faire pour faire AFFICHER LA partial map_card -> ou injecter code HTML dans formulaire
       this.mapboxTarget.insertAdjacentHTML('afterEnd', e.map_card)
     })
   }
