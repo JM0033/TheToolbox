@@ -30,9 +30,11 @@ export default class extends Controller {
   }
 
   #setInputValue(event) {
+    // console.log(event.result.geometry.coordinates[0])
+    // console.log(event.result.geometry.coordinates[1])
     this.addressTarget.value = event.result["place_name"];
-    this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
-    this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+    this.#addCustomToMap(event.result.geometry.coordinates[1], event.result.geometry.coordinates[0]);
+    this.#addRoute(event.result.geometry.coordinates[1], event.result.geometry.coordinates[0]);
     window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 });
   }
 
@@ -47,12 +49,10 @@ export default class extends Controller {
   }
 
   #addCustomToMap(lat, lng) {
-    // console.log(lat)
-    // console.log(lng)
     // console.log(window.map)
     if (this.marker) this.marker.remove()
     this.marker = new mapboxgl.Marker()
-      .setLngLat([ lat, lng ])
+      .setLngLat([ lng, lat ])
       .addTo(window.map)
     }
 
@@ -67,13 +67,13 @@ export default class extends Controller {
         "Content-Type": "application/json", // 👈👈👈 To send json in body, specify this
         Accept: "application/json",         // 👈👈👈 Specify the response to be returned as json. For api only mode, this may not be needed
       },
-      body: JSON.stringify({coordinates:{ longitude: lat, latitude: lng }}),
+      body: JSON.stringify({coordinates:{ longitude: lng, latitude: lat }}),
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log("data points :", data.points);
-      console.log("data duration :", data.duration);
-      console.log("data distance :", data.distance);
+    //  console.log("data points :", data.points);
+    //  console.log("data duration :", data.duration);
+    //  console.log("data distance :", data.distance);
 
       // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
