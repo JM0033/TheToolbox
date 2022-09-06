@@ -23,6 +23,9 @@ import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 
+import MapMeetingPointController from "./map_meeting_point_controller"
+application.register("map-meeting-point", MapMeetingPointController)
+
 import QuestionFormController from "./question_form_controller"
 application.register("question-form", QuestionFormController)
 

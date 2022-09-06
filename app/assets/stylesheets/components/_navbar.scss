@@ -18,3 +18,13 @@
   position: absolute;
   width: 100vw;
 }
+
+.nav-item.dropdown {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+}
+
+.navbar-collapse {
+  flex-basis: none !important;
+}

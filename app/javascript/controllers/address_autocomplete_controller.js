@@ -7,7 +7,9 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    userPosition: Array
+    userPosition: Array,
+    traceRoute: Boolean,
+    routeCoordinates: Array
   }
 
     static targets = ["address"]
@@ -22,15 +24,23 @@ export default class extends Controller {
     // console.log(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
-
+    if (this.traceRouteValue) {
+      this.traceRouteFromMeetingPoint(this.routeCoordinatesValue[0], this.routeCoordinatesValue[1])
+    }
   }
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
-    console.log(event.result)
+    // console.log(event.result)
     this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 })
+  }
+
+  traceRouteFromMeetingPoint(lat, lng) {
+    this.#addCustomToMap(lat, lng)
+    this.#addRoute(lat, lng)
+    window.map.fitBounds([this.userPositionValue, [lat, lng]], { padding: 50 })
   }
 
   #clearInputValue() {
@@ -61,7 +71,11 @@ export default class extends Controller {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
+      console.log("data points :", data.points);
+      console.log("data duration :", data.duration);
+      console.log("data distance :", data.distance);
+
+      // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
         if (routeSource) {
           routeSource.setData({
@@ -98,6 +112,17 @@ export default class extends Controller {
             }
           });
         }
+        // const instructions = document.getElementById('instructions');
+        // const duration = data.routes;
+        // console.log(data.results)
+
+        // let tripInstructions = '';
+        // for (const step of steps) {
+        //   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+        // }
+        // instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+        //  data.duration / 60
+        // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
     })
   }
   // input(event) {

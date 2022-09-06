@@ -5,6 +5,13 @@ class GetRoutePoints
 
   def call
     cycling_directions = Mapbox::Directions.directions(@points, "cycling", { geometries: "geojson", overview: "full" } )
-    cycling_directions.first["routes"].first["geometry"]["coordinates"]
+    puts "\n\n\n -------------"
+    puts cycling_directions
+    puts "\n\n\n --------------"
+    {
+      points: cycling_directions.first["routes"].first["geometry"]["coordinates"],
+      duration: cycling_directions.first["routes"].first["duration"],
+      distance: cycling_directions.first["routes"].first["distance"]
+    }
   end
 end

@@ -7,7 +7,8 @@
     data-map-users-markers-value="<%= @users_markers.to_json %>"
     data-map-user-position-value="<%= [@userLgn, @userLat]%>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-map-target="mapbox">
+    data-map-target="mapbox"
+    data-map-hide-markers-value="true">
   </div>
 
   <div class="search">
@@ -15,7 +16,12 @@
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
 
-    <div class="text" data-controller="address-autocomplete" data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="text"
+         data-controller="address-autocomplete"
+         data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>"
+         data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         data-address-autocomplete-trace-route-value="<%= params[:trace_route] %>"
+         data-address-autocomplete-route-coordinates-value="<%= [params[:lat], params[:lng]] %>">
       <input class="text-input" type="text" data-address-autocomplete-target="address" data-action="input->address-autocomplete#input" placeholder="Where do you want to go?">
     </div>
   </div>
