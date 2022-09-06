@@ -12,6 +12,7 @@ export default class extends Controller {
   static targets = ["mapbox"]
 
   connect() {
+    console.log("connected to map_meeting_point controller")
     mapboxgl.accessToken = this.apiKeyValue
     this.clickMarker = new mapboxgl.Marker()
 
