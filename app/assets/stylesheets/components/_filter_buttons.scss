@@ -34,7 +34,15 @@ body {
 
 .fa-user {
   color: $secondary-dark;
-  font-size: 25px;
+  font-size: 22px;
+}
+
+.user-icon {
+  border: solid;
+  border-radius: 50px;
+  border-color: $secondary-dark;
+  background-color: white;
+  padding: 8px 12px;
 }
 
 .navbar-toggler {

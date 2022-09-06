@@ -17,6 +17,7 @@ Answer.destroy_all
 Question.destroy_all
 Chatroom.destroy_all
 Message.destroy_all
+MeetingPoint.destroy_all
 User.destroy_all
 
 # ----------------------------Users------------------------------------------
@@ -114,7 +115,11 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-UP3USJP7F-55bf4dafd2c6-512"
 @paul.photo.attach(io: file, filename: "paul.png", content_type: "image/png")
 @paul.save!
 
+#--------------------------Meeting points-------------------------------
 
+MeetingPoint.new(helper_id: @clemence.id,requestor_id: @john.id, latitude: 2.3590809492289466, longitude: 48.95226546436605, date_time: "2022-09-07 14:31:16.422414000 +0000", status: "accepted").save!
+MeetingPoint.new(helper_id: @jeremy.id,requestor_id: @john.id, latitude: 2.36, longitude: 48.8, date_time: "2022-09-09 14:31:16.422414000 +0000", status: "accepted").save!
+MeetingPoint.new(helper_id: @john.id,requestor_id: @jeannoel.id, latitude: 2.29, longitude: 48.8, date_time: "2022-09-10 14:31:16.422414000 +0000", status: "accepted").save!
 
 #--------------------------Chatrooms-------------------------------
 
@@ -142,9 +147,9 @@ puts "Creating Question 1 and answers"
   Class 3, Pedal assit only with 28 mph speed limit, No throttle.
   Class 2, 20 mph speed limit. Pedal assist and throttle.
   Bikes w/o pedals are not ebikes. Motor power limit is 750W.
-  
+
   As each of the 50 states in the USA start to define ebikes, variations of the above definitions appear,.
-  
+
   Today, some sellers call their Class 3, pedal assist and throttle with 28 mph top speed, throttle stops at 20 mph.",
   votes: 4
 )
@@ -178,7 +183,7 @@ puts "Creating Question 2 and answers"
   content: "Hi all.
 
   Had to plug and pump up a 38mm gravel tire on today's ride, and my pump (Silca Tattico) is designed more for road tires; took about 160 strokes to get the tire from squishy to 'just right,' and that was a lot of fun in the high heat and humidity. This got me thinking that I might buy a Lezyne pump designed for higher volume tires from their HV series...The question is, which one? They have quite a few, and it's pretty hard to discern any differences. Produce page here.
-  
+
   Any input and experience appreciated.",
   user_id: @jeannoel.id
 )
@@ -228,7 +233,7 @@ puts "Creating Question 3 and answers"
   content: "Hi, Clemence.
 
   From what I've researched regarding the Trek FX range, is that once you're into the FX 7.7 to 7.9 range, they are basically a carbon Trek Madone or Trek Domane road/race bike with flat bars. Thus, the maximum tire clearance is not a whole lot--28mm max is a good expectation, and you'd have to mount 32s (and measure them) on your own wheels and see if you could mount them on the bike you're looking at.
-  
+
   Lesser Trek FX's throughout the years have normal generous clearances, my 2014 FX 7.3 will clear 42mm tires front and rear. FX 7.4s to 7.6s came with carbon forks instead of aluminum (7.3) or steel (7.2 and less), which is something I've been looking for. My 7.3 is great though, and will handle gravel easily with it's large tires. That is, if I ever bother with gravel. The paint is so pretty and so pristine that my road-biased self just enjoys it on the road (albeit with road bike componentry)!",
   votes: 2
 )
@@ -249,7 +254,7 @@ puts "Creating Question 4 and answers"
   content: "OK. So, tentatively we were planning to tour South Korea next spring but some friends expressed their bucket list desire to tour Thailand. So I looked it up, literally for the first time and found well written article that made it seem awesome. I also like the itinerary's ease: Fly to Bangkok, train to Hat Yai and then bike back to Bangkok following the coast. Leave cooking and camping stuff at home because - Thailand.
 
   Anyone done this route and is there a recommended gpx to go or do you just wing it (which is what I am best at)?
-  
+
   Luggage storage at the airport? Traveling on the train with a tandem or single bicycle?",
   user_id: @jeremy.id
 )
@@ -281,9 +286,9 @@ puts "Creating Question 4 and answers"
   content: "suvarnabumi airport has a left luggage storage outside the secure area. or you could stay at a hotel near the airport with pickup service, stay one night, leave your stuff and bike boxes there in storage. if interested, i'll try to locate the one i stayed in last time.....something like green resort i think, in the lat krabang area just north of the airport.
 
   next morning, bike a mile to the train station just north of the airport, catch the local (NOT during commuter time) to the main station. no baggage car, but you can load your bike into the main cabin. then switch to the southbound with baggage car.
-  
+
   ride back from hat yai to stay in the same hotel for a night, pack your stuff, and use their airport dropoff service next morning.
-  
+
   i did part of that route a decade ago, left bangkok, to kanchaniburi for a few days, then south towards singapore. got fed up with the dogs by the time i hit ratchaburi, so took a train from there to hat yai to start biking again. no stray dogs in the muslim south for some reason.",
   votes: 5
 )
@@ -296,7 +301,7 @@ puts "Creating Question 5 and answers"
   content: "I’m planning to ride my Surly Cross Check in the winter. I have a good, handbuilt wheelset with RH Barlow Pass 38mm (tubed), and an inexpensive Alex wheelset with WTB Venture 40mm (tubeless).
 
   I live outside Toronto. We have proper winter but usually I can ride 1-2x a week throughout winter on roads that are free of snow/ice.
-  
+
   I’m thinking of using the Ventures because of the tread pattern and how it’s better in uncertain conditions than the Rene Herse, and it’s tubeless, and the wheels can take abuse without fuss by me.",
   user_id: @jeremy.id
 )
@@ -328,11 +333,11 @@ puts "Creating Question 6 and answers"
 
   BUT I have a huge problem.
   The wheel doesn't work.
-  
+
   When I barely serve both screws impossible to turn the crankset the hub is as if blocked as if I tighten super hard but it is not the case.
-  
+
   I removed the hubguards to be sure and it's really as if the wheel was blocked. I tight correctly but it’s look like I tighten so hard that the bearing braking.
-  
+
   Would anyone have a solution to that ?",
   user_id: @john.id
 )
@@ -345,7 +350,7 @@ puts "Creating Question 7 and answers"
   content: "I've been riding it over a week with an untrue back wheel (aka Kayak Mode). Today, I checked the wheel because the trouble had become a big issue again, and found I had two (!) broken spokes since replacing the first broken one a week or two ago.
 
   So, why are my spokes snapping like spaghetti? I guess:
-  
+
   Because I was riding without truing the wheel
   Because I'm riding too hard (i.e. coming off curbs)
   Some combination of the two, or something else.
@@ -401,9 +406,9 @@ puts "Creating Question 8 and answers"
 @question8 = Question.new(
   title: "Can degreaser harm bike?",
   content: "I've just started to use Muc Off's chain machine with its carbon-safe, biodegradable degreaser.
-  
+
   I really like the outcome, and I guess its effectiveness come from its strength (therefore I am also a bit worried if it can damage the parts). After I apply the degreaser on the chain + cassette, I usually just wipe off the bike with a wet microfiber cloth + the chain and the cassette with some paper towel. Is that enough or should I also rinse it off with water?
-  
+
   Thanks",
   user_id: @jeannoel.id
 )
@@ -424,11 +429,11 @@ puts "Creating Question 9 and answers"
   content: "I bought a second-hand bike in 2020. It has SRAM Level TL installed from the start. It caught my attention that brake lever didn't return to the end and had very little travel. I asked a mechanic that I know and he said to not worry, so I didn't.
 
   Fast forward 2 years I noticed that brakes are not returning and are braking/dragging all the time.
-  
+
   I went to a bike shop asking for a fix (just an oil change I thought) but they told me there has to be something wrong with the caliper and not the oil and they need to open it and clean and put oil in it.
-  
+
   After 2 days the bike shop told me that cleaning didn't fix anything and I should replace the entire brake system and it is going to cost me around 400€ as each brake kit cost 180€ (big markup as the official SRAM page gives pvp 121 and you can find them far cheaper online)
-  
+
   Does anyone have experience with SRAM hydraulic brakes?",
   user_id: @jeremy.id
 )
@@ -461,9 +466,9 @@ puts "Creating Question 10 and answers"
   content: "Sometimes my front disc brakes on my mountain bike sing when I am NOT applying them.
 
   I can see there is a space between the pad and the rotor.
-  
+
   It can get irritating.
-  
+
   Is there some kind of fix?",
   user_id: @jeannoel.id
 )
@@ -496,9 +501,9 @@ puts "Creating Question 11 and answers"
   content: "I have a small slit in my MTB tyre (approx 3mm long x barely 1mm wide) which won't seal.
 
   I had to put a tube in when the puncture happened as it wouldn't seal, but I've now taken the tube out, cleaned down, remounted and injected fresh sealant. So I know there's plenty of fresh sealant in there.
-  
+
   The hole is so small that I can't understand why it won't seal. I've had other punctures seal ok on these tyres with this brand of sealant.
-  
+
   Are there some punctures that simply won't seal? Or is there something I need to do to make this sealable? I have some tubeless tyre plugs, but even the smallest is way way bigger than the hole I've got.",
   user_id: @john.id
 )
@@ -536,9 +541,9 @@ puts "Creating Question 13 and answers"
 @question13 = Question.new(
   title: "Which bicycle brand has the best (frame + fork) warranty?",
   content: "I prefer the lifetime warranty (LFW). But a TRUE lifetime warranty (not for first owner only).
-  
+
   (For example TREK and Specialized has an LFW for first owner only.)
-  
+
   So I can buy a used bike. (Being more specific I'm considering an entry-level road bike)",
   user_id: @jeremy.id
 )

@@ -1,0 +1,33 @@
+<div class="question-container border-bottom" style="padding-top: 15px">
+  <h4><strong><%= link_to "Launch itinerary", root_path, style: "text-decoration: none;" %></strong></h4>
+  <p><strong>When: </strong><%= meeting_point.date_time.strftime("%m/%d/%Y at %I:%M%p") %></p>
+  <div class="question-info">
+    <div class="answer-count-infos">
+      <p><strong>Status: </strong><%= meeting_point.status %></p>
+    </div>
+    <div class="asker-infos">
+      <div style="padding-right: 6px">
+        <p>
+          <% if meeting_point.requestor == current_user %>
+          <strong>Helper: </strong>
+          <%= meeting_point.helper.username  %>
+          <% else %>
+            <strong>Requestor: </strong>
+            <%= meeting_point.requestor.username %>
+          <% end %>
+        </p>
+      </div>
+        <div>
+          <% if meeting_point.requestor == current_user %>
+            <% if meeting_point.helper.photo.attached? %>
+              <%= cl_image_tag meeting_point.helper.photo.key, crop: :fill, class: "avatar-small" %>
+            <% end %>
+          <% else%>
+            <% if meeting_point.requestor.photo.attached? %>
+              <%= cl_image_tag meeting_point.requestor.photo.key, crop: :fill, class: "avatar-small" %>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

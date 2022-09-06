@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only:[] do
     resources :meeting_points, only: [:new, :create]
   end
-  resources :meeting_points, only: [:edit, :update]
+  resources :meeting_points, only: [:edit, :update, :index]
 
   resources :questions, only: [:create, :index, :show] do
     resources :answers, only: [:create]

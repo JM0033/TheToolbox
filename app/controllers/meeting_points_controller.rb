@@ -27,6 +27,10 @@ class MeetingPointsController < ApplicationController
     end
   end
 
+  def index
+    @meeting_points = current_user.meeting_points
+  end
+
   def edit
   end
 

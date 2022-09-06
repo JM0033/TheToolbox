@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :meeting_points, foreign_key: :requestor_id, class_name: "MeetingPoint"
-  has_many :meeting_points, foreign_key: :helper_id, class_name: "MeetingPoint"
+
   has_one_attached :photo
 
   has_many :chatrooms,
@@ -16,6 +15,14 @@ class User < ApplicationRecord
             class_name: 'Chatroom',
             dependent: :destroy
   has_many :messages, dependent: :destroy
+
+  has_many :meeting_points,
+  ->(user) {
+    unscope(where: :user_id)
+    .where("requestor_id = :user_id OR helper_id = :user_id", user_id: user.id)
+  },
+  class_name: 'MeetingPoint',
+  dependent: :destroy
 
   validates :biker_status, inclusion: { in: ["untrained", "average", "in good shape", "athletic", "pro"] }, allow_nil: true
 
