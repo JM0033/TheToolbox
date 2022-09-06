@@ -68,6 +68,21 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.photo.attach(io: file, filename: "jeannoel.png", content_type: "image/png")
 @jeannoel.save!
 
+@jonas = User.new(
+  username: "JonasVingegaard",
+  email: "jonas@bike.com",
+  password: "password",
+  description: "This is me I love cycling around.",
+  biker_status: "untrained",
+  language: "danish",
+  bike_model: "Cargo Urban Arrow Family",
+  longitude: -68.188142,
+  latitude: -22.875810
+)
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/5b/Tadej_Poga%C4%8Dar_%282020-09-20%29_-_Yellow_jersey_-_Tour_de_France_2020.jpg")
+@jonas.photo.attach(io: file, filename: "jonas.png", content_type: "image/png")
+@jonas.save!
+
 @john = User.new(
   username: "john",
   email: "john@bike.com",

@@ -1,7 +1,7 @@
 <div class="poi-card">
-  <%# <div> %>
-    <%#= cl_image_tag "#{point_of_interest.photo.key}", alt: "#{point_of_interest.name}'s image", class: 'poi-image'%>
-  <%# </div> %>
+  <div>
+    <%= cl_image_tag "#{point_of_interest.photos.first.key}", alt: "#{point_of_interest.name}'s image", class: 'poi-image'%>
+  </div>
   <div>
     <p><%= point_of_interest.name  %></p>
     <p><%= point_of_interest.address  %></p>
