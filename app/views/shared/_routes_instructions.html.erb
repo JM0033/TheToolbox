@@ -1,5 +1,5 @@
 
-<div class="card-user" data-controller="user-map-card" data-user-map-card-target="userCard">
+<div class="card-user" data-controller="addressAutocomplete" data-address-autocomplete-target="userCard">
   <div class="card-user-header">
     <%= cl_image_tag "#{user.photo.key}", alt: "#{user.username}'s avatar", class: 'avatar-bordered'%>
     <div>
@@ -7,7 +7,7 @@
       <h2> <%= user.biker_status %> </h2>
     </div>
     <div class="header-second-column">
-      <i class="fa-solid fa-square-xmark" data-action="click->user-map-card#closeUserMapCard"></i>
+      <i class="fa-solid fa-square-xmark" data-action="click->address-autocomplete#addRoute"></i>
       <p> <%= user.language %> </p>
     </div>
   </div>

@@ -19,18 +19,17 @@ export default class extends Controller {
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
     this.geocoder.addTo(this.element)
-    // console.log(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
 
   }
 
   #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
-    // console.log(event.result)
-    this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
-    this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
-    window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 })
+    this.addressTarget.value = event.result["place_name"];
+    this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+    this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+    window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 });
+
   }
 
   #clearInputValue() {
@@ -103,8 +102,8 @@ export default class extends Controller {
           });
         }
         // const instructions = document.getElementById('instructions');
-        // const duration = data.routes;
-        // console.log(data.results)
+        // const duration = data.duration;
+        // const distance = data.duration;
 
         // let tripInstructions = '';
         // for (const step of steps) {
