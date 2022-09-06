@@ -9,9 +9,13 @@ export default class extends Controller {
   }
 
   // static targets = ["content"]
-  static targets = ["mapbox"]
+  static targets = ["btn", "lat", "long"]
 
   connect() {
+    console.log(this.latTarget)
+    console.log(this.longTarget)
+    console.log(this.btnTarget)
+    console.log('Coucou from meeting point controller')
     mapboxgl.accessToken = this.apiKeyValue
     this.clickMarker = new mapboxgl.Marker()
 
@@ -53,20 +57,20 @@ export default class extends Controller {
 
   #displayCoordinatesOnClick(){
     this.map.on('click', (e) => {
-      // const popup = new mapboxgl.Popup().setHTML(e.info_window)
       this.clickMarker
       .setLngLat([ e.lngLat.lng, e.lngLat.lat ])
-      // .setPopup(popup)
-      // .setOffset({y: 0})
       .addTo(this.map)
       console.log(e)
       console.log(e.lngLat.lng)
       console.log(e.lngLat.lat)
-
-
-
-      // modif a faire pour faire AFFICHER LA partial map_card -> ou injecter code HTML dans formulaire
-      this.mapboxTarget.insertAdjacentHTML('afterEnd', e.map_card)
+      this.#displayButton()
+      this.latTarget.value= e.lngLat.lat
+      this.longTarget.value= e.lngLat.lng
     })
   }
+
+  #displayButton(){
+    this.btnTarget.classList.remove('hidden')
+  }
+
 }

@@ -20,6 +20,8 @@ class MeetingPointsController < ApplicationController
     @meeting_point.requestor = current_user
     @meeting_point.helper = User.find(params[:user_id])
     @meeting_point.status = "pending"
+    @meeting_point.latitude = (params[:meeting_point][:latitude])
+    @meeting_point.longitude = (params[:meeting_point][:longitude])
     if @meeting_point.save!
       redirect_to chatrooms_path
     else
@@ -41,6 +43,6 @@ class MeetingPointsController < ApplicationController
   private
 
   def params_meeting_point
-    params.require(:meeting_point).permit( :date, :address, :latitude, :longitude)
+    params.require(:meeting_point).permit( :date, :latitude, :longitude)
   end
 end
