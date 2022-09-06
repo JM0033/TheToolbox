@@ -5,8 +5,8 @@ class PagesController < ApplicationController
     results.first.coordinates
     # @userLat = results.first.coordinates[0]
     # @userLgn = results.first.coordinates[1]
-    @userLat = -23.154775
-    @userLgn = -68.514170
+    @userLat = 48.856614
+    @userLgn = 2.3522219
 
     @points_of_interests = PointOfInterest.all
     # The `geocoded` scope filters only POI with coordinates

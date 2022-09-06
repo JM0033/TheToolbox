@@ -27,7 +27,7 @@ export default class extends Controller {
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
-    console.log(event.result)
+    // console.log(event.result)
     this.#addCustomToMap(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     this.#addRoute(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1])
     window.map.fitBounds([this.userPositionValue, [event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]]], { padding: 50 })
@@ -61,7 +61,8 @@ export default class extends Controller {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
+      // console.log(data);
+      // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
         if (routeSource) {
           routeSource.setData({
@@ -99,7 +100,8 @@ export default class extends Controller {
           });
         }
         // const instructions = document.getElementById('instructions');
-        // const steps = data.legs[0].steps;
+        // const duration = data.routes;
+        // console.log(data.results)
 
         // let tripInstructions = '';
         // for (const step of steps) {
