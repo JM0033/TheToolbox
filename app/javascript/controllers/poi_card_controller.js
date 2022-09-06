@@ -4,8 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
   }
-  static targets = ["infoCard"]
-
+ 
   closePoiInfoCard() {
     console.log(this.element,"hello")
     // this.element.classList.toggle("card-user-shown")
