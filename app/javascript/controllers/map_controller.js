@@ -75,10 +75,10 @@ export default class extends Controller {
       .setLngLat([ marker.lng, marker.lat ])
       // .setPopup(popup)
       .addTo(this.map)
-      console.log(bikerMarker)
+      // console.log(bikerMarker)
       bikerMarker.getElement().addEventListener('click', () => {
-        console.log(marker)
-        console.log("Clicked", marker.user_card)
+        // console.log(marker)
+        // console.log("Clicked", marker.user_card)
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.user_card)
       })
     })

@@ -1,13 +1,7 @@
 class PagesController < ApplicationController
-  def home
-    @ip = "85.204.70.90" # à remplacer par user_ip avant mise en prod
-    results = Geocoder.search(@ip)
-    results.first.coordinates
-    # @userLat = results.first.coordinates[0]
-    # @userLgn = results.first.coordinates[1]
-    @userLat = -23.097688
-    @userLgn = -68.090525
+  before_action :getUserCoordinates, only: :home
 
+  def home
     @points_of_interests = PointOfInterest.all
     # The `geocoded` scope filters only POI with coordinates
     @markers = @points_of_interests.geocoded.map do |point_of_interest|
@@ -19,7 +13,6 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("#{point_of_interest.category}.png")
       }
     end
-
     @users = User.all.where.not(id: current_user.id)
     @users_markers = @users.geocoded.map do |user|
       {
@@ -30,11 +23,5 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("Bikers.png")
       }
     end
-  end
-
-  private
-
-  def user_ip
-    request.remote_ip
   end
 end

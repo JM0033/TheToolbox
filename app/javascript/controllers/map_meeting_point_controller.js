@@ -12,6 +12,7 @@ export default class extends Controller {
   static targets = ["btn", "lat", "long"]
 
   connect() {
+    console.log("connected to map_meeting_point controller")
     console.log(this.latTarget)
     console.log(this.longTarget)
     console.log(this.btnTarget)
