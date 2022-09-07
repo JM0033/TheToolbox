@@ -1,11 +1,13 @@
 .small-card {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
+  margin-left:-16px;
+  width: 100%;
   position: absolute;
   left: 1rem;
   right: 1rem;
-  z-index: 10000;
+  z-index: 2;
   bottom: 0;
   transition: bottom 1s ease;
 }
