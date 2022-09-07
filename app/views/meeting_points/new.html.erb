@@ -15,7 +15,8 @@
         <%= f.input :date_time, as: :datetime, html5:true, label: false, required: true, error: "Please set a meeting date and time." %>
         <%= f.input :latitude, label: false, input_html: {data: {map_meeting_point_target: "lat"}, class: 'hidden' }%>
         <%= f.input :longitude, label: false, input_html: {data: {map_meeting_point_target: "long"}, class: 'hidden' }%>
-        <%= f.button :submit, 'Send meeting request', class: 'btn filters btn-long btn-contain hidden', data: {map_meeting_point_target: "btn"}%>
+        <%= f.button :submit, 'Send meeting request', style: 'width: 100%; color: white; background-color: #0F469C;', class: 'btn filters btn-long btn-contain hidden', data: {map_meeting_point_target: "btn"}%>
       <% end %>
     </div>
   </div>
+<%= render "shared/footer_navbar" %>
