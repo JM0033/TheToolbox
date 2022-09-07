@@ -38,6 +38,7 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       const customMarker = document.createElement("div")
       // ex: data-filter-target="tourism"
+      customMarker.className = "marker d-none"
       customMarker.dataset.filterTarget = marker.category.toLowerCase()
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
