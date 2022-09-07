@@ -12,11 +12,19 @@
   transition: bottom 1s ease;
 }
 
+.subtitle{
+  font-size: 16px;
+}
+
+.closing-cross{
+  padding:10px;
+  font-weight: 600;
+}
+
 .small-card-header{
   margin: 10px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.05rem solid lightgrey;
   padding-bottom: 0.7rem;
 
   h1{
@@ -29,11 +37,6 @@
     flex: 1;
     font-size: 16px;
     font-weight: normal;
-  }
-
-  p{
-    justify-content: right;
-    align-self: top;
   }
 
   .fa-solid{
@@ -53,25 +56,24 @@
   align-items: center;
 }
 
-.small-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
+// .small-card p {
+//   font-size: 12px;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 8px;
+// }
 
 .small-card .small-card-infos {
   padding: 2px 10px 10px 10px;
   h2{
-    font-size: 12px;
+    font-size: 16px;
   }
 
   p{
     margin-bottom: 10px;
   }
   #btn-small-card{
-    border-top: 0.05rem solid lightgrey;
     display:flex;
     justify-content:center;
     padding-top: 10px;

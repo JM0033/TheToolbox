@@ -1,15 +1,16 @@
 <div class="small-card" data-controller="info-card" data-info-card-target="infoCard">
   <div class="small-card-header">
+   <%= image_tag "Bikeshop.png", alt: "Category logo", class: 'avatar-large'%>
     <div>
       <h1> <%= poi.name %> </h1>
+      <p class="subtitle"> <%= poi.category %> </p>
     </div>
     <div class="header-second-column">
-      <i class="fa-solid fa-square-xmark" data-action="click->info-card#closeInfoCard"></i>
-      <p> <%= poi.category %> </p>
+      <i class="fa-solid fa-xmark closing-cross" data-action="click->info-card#closeInfoCard"></i>
     </div>
   </div>
   <div class="small-card-infos">
-    <p> <%= poi.address%> </p>
+    <p class="subtitle"> <%= poi.address%> </p>
     <%= link_to root_path(), style:"text-decoration:none; color:red;" do %>
       <div id="btn-small-card">
         <p class="btn filters btn-long">Details</p>
