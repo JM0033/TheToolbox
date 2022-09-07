@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="poi-card"
+// Connects to data-controller="info-card"
 export default class extends Controller {
   connect() {
   }
- 
-  closePoiInfoCard() {
+
+  closeInfoCard() {
     console.log(this.element,"hello")
     // this.element.classList.toggle("card-user-shown")
     // this.element.classList.toggle("card-user")
