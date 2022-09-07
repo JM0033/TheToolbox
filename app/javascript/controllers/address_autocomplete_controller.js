@@ -39,9 +39,9 @@ export default class extends Controller {
   }
 
   #traceRouteFromMeetingPoint(lat, lng) {
-    this.#addCustomToMap(lat, lng)
+    // this.#addCustomToMap(lat, lng)
     this.#addRoute(lat, lng)
-    window.map.fitBounds([this.userPositionValue, [lat, lng]], { padding: 50 })
+    // window.map.fitBounds([this.userPositionValue, [lat, lng]], { padding: 50 })
   }
 
   #clearInputValue() {
@@ -111,9 +111,20 @@ export default class extends Controller {
              'line-width': 5
             }
           });
+          this.#addCustomToMap(data.points[data.points.length -1][1], data.points[data.points.length -1][0])
+          window.map.fitBounds([
+            this.userPositionValue,
+            [data.points[data.points.length -1][0], data.points[data.points.length -1][1]]
+          ],
+            { padding: 80 })
+            console.log("initial:",
+              this.userPositionValue,
+              "final? :",
+              [data.points[data.points.length -1][0], data.points[data.points.length -1][1]])
+          // console.log(data.points[data.points.length -1][0])
           const hours = Math.floor(data.duration / 3600);
           const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
-          const seconds = data.duration - (hours * 3600) - (minutes * 60);
+          const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
           let timeString = hours.toString().padStart(2, '0') + ':' +
           minutes.toString().padStart(2, '0') + ':' +
           seconds.toString().padStart(2, '0');
