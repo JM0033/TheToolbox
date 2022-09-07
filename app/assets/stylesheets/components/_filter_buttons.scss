@@ -2,20 +2,21 @@
   background-color: $main-light;
   height: 50px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .filters {
   color: white;
   background-color: $main-dark;
   border-radius: 8px;
-  padding: 6px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 95px;
 }
 
 .filters-active {
@@ -65,4 +66,11 @@ body {
 
 .btn-long{
   width: 200px;
+}
+
+.menu-extension-button {
+  background-color: $secondary-dark;
+  border-radius: 25%;
+  height: 4px;
+  width: 40px;
 }

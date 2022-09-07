@@ -1,4 +1,4 @@
-  <%= render "shared/navbar" %>
+<%= render "shared/navbar" %>
 
 <div data-controller="filter bikers address-autocomplete" data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>"
     data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -17,58 +17,65 @@
     data-map-hide-markers-value="true">
   </div>
 
-  <div class="search">
-    <div class="icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-
-    <div class="text" data-address-autocomplete-target="container">
-      <input class="text-input" type="text" data-address-autocomplete-target="address" data-action="input->address-autocomplete#input" placeholder="Where do you want to go?">
-    </div>
-  </div>
-
-  <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
-    <div class="search" data-bikers-target="btnBikers">
+<div class="search-filters-container">
+  <div style="display: flex; justify-content: center; padding-top: 5px"><button class="menu-extension-button" type="button"></button></div>
+  <%# search bar %>
+    <div class="search">
       <div class="icon">
-        <i class="fa-solid fa-users"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
       </div>
-      <div class="text" style="margin-left: 4px;">
-        <p style="color: black;">Find bikers around me</p>
+      <div class="text" data-address-autocomplete-target="container">
+        <input class="text-input" type="text" data-address-autocomplete-target="address" data-action="input->address-autocomplete#input" placeholder="Where do you want to go?">
       </div>
     </div>
-  <% end %>
+  <%# Filters menu %>
+    <div class="btn-contain container">
+    <%# Bikers %>
+      <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
+      <div class="filters filter-biker" data-bikers-target="btnBikers">
+        <div class="icon">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="text">
+          <p data-filter-target="content">Community</p>
+        </div>
+      </div>
+      <% end %>
+    <%# Camping %>  
+      <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "campsite" } do %>
+        <div class="filters" data-filter-target="btnCampsite">
+          <div class="icon">
+            <i class="fa-solid fa-campground"></i>
+          </div>
+          <div class="text">
+            <p data-filter-target="content">Camping</p>
+          </div>
+        </div>
+      <% end %>
+    <%# Tourism %> 
+      <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "tourism" } do %>
+        <div class="filters" data-filter-target="btnTourism">
+          <div class="icon">
+            <i class="fa-solid fa-monument"></i>
+          </div>
+          <div class="text">
+            <p data-filter-target="content">Tourism</p>
+          </div>
+        </div>
+      <% end %>
+    <%# Repair shops %>
+      <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "bikeshop" } do %>
+        <div class="filters" data-filter-target="btnBikeshop">
+          <div class="icon">
+            <i class="fa-solid fa-wrench"></i>
+          </div>
+          <div class="text">
+            <p data-filter-target="content">Repair</p>
+          </div>
+        </div>
+      <% end %>
 
-  <div class="btn-contain container">
-    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "bikeshop" } do %>
-      <div class="filters" data-filter-target="btnBikeshop">
-        <div class="icon">
-          <i class="fa-solid fa-shop"></i>
-        </div>
-        <div class="text">
-          <p data-filter-target="content">Bike shops</p>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "campsite" } do %>
-      <div class="filters" data-filter-target="btnCampsite">
-        <div class="icon">
-          <i class="fa-solid fa-campground"></i>
-        </div>
-        <div class="text">
-          <p data-filter-target="content">Camp sites</p>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "tourism" } do %>
-      <div class="filters" data-filter-target="btnTourism">
-        <div class="icon">
-          <i class="fa-solid fa-monument"></i>
-        </div>
-        <div class="text">
-          <p data-filter-target="content">Tourism</p>
-        </div>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
-  <%= render "shared/footer_navbar" %>
+<%= render "shared/footer_navbar" %>
