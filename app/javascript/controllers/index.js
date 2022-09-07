@@ -19,6 +19,9 @@ application.register("filter", FilterController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import InfoCardController from "./info_card_controller"
+application.register("info-card", InfoCardController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 

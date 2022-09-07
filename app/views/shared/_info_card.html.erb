@@ -1,10 +1,10 @@
-<div class="small-card" data-controller="poi-card" data-poi-card-target="infoCard">
+<div class="small-card" data-controller="info-card" data-info-card-target="infoCard">
   <div class="small-card-header">
     <div>
       <h1> <%= poi.name %> </h1>
     </div>
     <div class="header-second-column">
-      <i class="fa-solid fa-square-xmark" data-action="click->poi-card#closePoiInfoCard"></i>
+      <i class="fa-solid fa-square-xmark" data-action="click->info-card#closeInfoCard"></i>
       <p> <%= poi.category %> </p>
     </div>
   </div>
