@@ -59,7 +59,7 @@
 
 .card-product {
   overflow: hidden;
-  height: 100px;
+  height: 110px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -86,13 +86,13 @@
 }
 
 .card-product h2 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 18px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -116,4 +116,11 @@
   h1 {
     color:white;
   }
+}
+
+.btn-meeting {
+  background-color: $secondary-dark;
+  border-radius: 50px;
+  padding: 8px;
+  margin: 0 6px;
 }

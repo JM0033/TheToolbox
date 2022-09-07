@@ -1,12 +1,10 @@
-<div class="card-product">
+<div class="card-product" style="height:80px;">
   <%= link_to chatrooms_path do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
   <%= cl_image_tag "#{@chatroom.interlocutor_of(current_user).photo.key}", alt: "#{@chatroom.interlocutor_of(current_user).username}'s avatar", class: 'message-avatar'%>
   <div class="card-product-infos">
     <h2><%= @chatroom.interlocutor_of(current_user).username %></h2>
-    <p><strong>Description: </strong><%= @chatroom.interlocutor_of(current_user).description %></p>
-    <p><strong>Status: </strong><%= @chatroom.interlocutor_of(current_user).biker_status %><strong> Language: </strong><%= @chatroom.interlocutor_of(current_user).language %></p>
   </div>
 </div>
 <div data-controller="chatroom-subscription"
@@ -19,6 +17,11 @@
     <% end %>
     </div>
   </div>
+    <%= link_to new_user_meeting_point_path(@chatroom.interlocutor_of(current_user)), style:"text-decoration:none; color:red;" do%>
+      <div id="btn-user-card" class = "btn-meeting">
+        <p style="text-align:center; color: white; margin: 0;" >Set up a meeting with <%= @chatroom.interlocutor_of(current_user).username %> </p>
+      </div>
+    <%end%>
   <%= simple_form_for [@chatroom, @message],
     html: {
       class: 'input-group',
@@ -34,12 +37,5 @@
         input_html: { class: 'form-control' } %>
       <%= f.submit "Send", class: 'btn btn-primary-light mb-3 d-none' %>
     <% end %>
-
-    <%= link_to new_user_meeting_point_path(@chatroom.interlocutor_of(current_user)), style:"text-decoration:none; color:red;" do%>
-      <div id="btn-user-card">
-        <p class="btn filters btn-long" >Set up a meeting with <%= @chatroom.interlocutor_of(current_user).username %> </p>
-      </div>
-    <%end%>
-
 </div>
   <%= render "shared/footer_navbar" %>
