@@ -7,6 +7,7 @@
   background-color: white;
   border-radius: 8px;
   border: solid $secondary-dark;
+
 }
 
 .search-active {
@@ -25,9 +26,16 @@
 .text-input {
   display: none;
 }
+
+.mapboxgl-ctrl-geocoder--input {
+  text-align: center; 
+  padding-right: 31px;
+}
+
 .text p {
   margin: 0;
 }
+
 .search .text {
   flex: 1;
   margin: auto;

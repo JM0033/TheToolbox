@@ -10,7 +10,7 @@ export default class extends Controller {
 
   displayBikers(event) {
     event.preventDefault();
-    event.currentTarget.querySelector('.search').classList.toggle("search-active");
+    event.currentTarget.querySelector('.filter-biker').classList.toggle("filters-active");
     document.querySelectorAll(".biker-marker").forEach((marker) => {
       marker.classList.toggle("d-none")
     })
