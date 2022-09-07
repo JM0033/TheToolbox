@@ -42,7 +42,7 @@ export default class extends Controller {
       customMarker.dataset.filterTarget = marker.category.toLowerCase()
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
-      customMarker.style.width = "30px"
+      customMarker.style.width = "40px"
       customMarker.style.height = "40px"
       new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
@@ -69,7 +69,7 @@ export default class extends Controller {
       }
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
-      customMarker.style.width = "30px"
+      customMarker.style.width = "40px"
       customMarker.style.height = "40px"
       const bikerMarker = new mapboxgl.Marker(customMarker)
 
