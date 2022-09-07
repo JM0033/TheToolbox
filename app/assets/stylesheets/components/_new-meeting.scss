@@ -1,0 +1,14 @@
+.title-new-meeting {
+  overflow: hidden;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  .fa-arrow-left {
+    font-size: 30px;
+    margin: 0 20px;
+  }
+  h1 {
+    color:white;
+    font-size: calc(1.375rem + 1.5vw);
+  }
+}

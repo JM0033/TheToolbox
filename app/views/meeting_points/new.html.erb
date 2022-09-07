@@ -1,4 +1,9 @@
-  <h1>Select a point on the map and a meeting date</h1>
+<div class="title-new-meeting" >
+  <%= link_to chatroom_path(current_user.chatroom_with(User.find(params[:user_id]))) do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h1 class="m-2">Meeting setup</h1>
+</div>
   <div  class="map d-flex flex-direction-column" style="width: 100%; height: 100vh;"
     data-controller="map-meeting-point"
     data-map-meeting-point-users-markers-value="<%= @users_markers.to_json %>"
