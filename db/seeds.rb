@@ -24,10 +24,10 @@ User.destroy_all
 
 puts "Creating Users..."
 @clemence = User.new(
-  username: "clemence",
+  username: "Clemence",
   email: "clemence@bike.com",
   password: "password",
-  description: "This is me. I love strange bikes.",
+  description: "Loving fixies and bike travel.",
   biker_status: "athletic",
   language: "french",
   bike_model: "Fixie bike upgraded",
@@ -39,10 +39,10 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
 @clemence.save!
 
 @jeremy = User.new(
-  username: "jeremy",
+  username: "Jeremy",
   email: "jeremy@bike.com",
   password: "password",
-  description: "This is me. I love bikes",
+  description: "Former pro, now dedicated on travel",
   biker_status: "pro",
   language: "french",
   bike_model: "Supercycle bike",
@@ -54,10 +54,10 @@ file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.save!
 
 @jeannoel = User.new(
-  username: "jeannoel",
+  username: "Jean-Noel",
   email: "jeannoel@bike.com",
   password: "password",
-  description: "This is me I love fast bikes.",
+  description: "Lazy, I love electrical bike.",
   biker_status: "untrained",
   language: "french",
   bike_model: "Electrical Velib",
@@ -69,10 +69,10 @@ file = URI.open("https://avatars.githubusercontent.com/u/100160246?v=4")
 @jeannoel.save!
 
 @jonas = User.new(
-  username: "JonasVingegaard",
+  username: "Jonas Vingegaard",
   email: "jonas@bike.com",
   password: "password",
-  description: "This is me I love cycling around.",
+  description: "Just starting cycling.",
   biker_status: "untrained",
   language: "danish",
   bike_model: "Cargo Urban Arrow Family",
@@ -84,10 +84,10 @@ file = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/5b/Tadej_Poga%
 @jonas.save!
 
 @john = User.new(
-  username: "john",
+  username: "John",
   email: "john@bike.com",
   password: "password",
-  description: "This is me. I love electrical bikes.",
+  description: "Focus on speed cycling.",
   biker_status: "athletic",
   language: "french",
   bike_model: "Race bicycle",
@@ -99,10 +99,10 @@ file = URI.open("https://avatars.githubusercontent.com/u/106547290?v=4")
 @john.save!
 
 @diane = User.new(
-  username: "diane",
+  username: "Diane",
   email: "diane@bike.com",
   password: "password",
-  description: "This is me. I love going on bike trips around the world",
+  description: "I love going on bike trips around the world",
   biker_status: "pro",
   language: "french",
   bike_model: "Gravel bike",
@@ -114,10 +114,10 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-UDF8DJTMM-7c86d3baa559-512"
 @diane.save!
 
 @paul = User.new(
-  username: "paul",
+  username: "Paul",
   email: "paul@bike.com",
   password: "password",
-  description: "This is me. I'm an experimented bike traveler.",
+  description: "I'm an experimented bike traveler.",
   biker_status: "pro",
   language: "english",
   bike_model: "Triban RC500 SORA/PROWHEEL",

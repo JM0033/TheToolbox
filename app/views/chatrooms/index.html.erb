@@ -10,7 +10,8 @@
     <%= cl_image_tag "#{chatroom.interlocutor_of(current_user).photo.key}", alt: "#{chatroom.interlocutor_of(current_user).username}'s avatar", class: 'message-avatar'%>
     <div class="card-product-infos index">
       <h2><%= chatroom.interlocutor_of(current_user).username %></h2>
-      <p><strong>Status: </strong><%= chatroom.interlocutor_of(current_user).biker_status %><strong> Language: </strong><%= chatroom.interlocutor_of(current_user).language %></p>
+      <p><strong>Status: </strong><%= image_tag "#{chatroom.interlocutor_of(current_user).biker_status}.png", width: "25px", height: "25px", class: "biker_status" %><strong> Language: </strong><%= image_tag "#{chatroom.interlocutor_of(current_user).language}.png", width: "25px", height: "25px", class: "language"  %></p>
+
     </div>
   </div>
   <% end %>
