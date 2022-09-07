@@ -1,35 +1,45 @@
-<div class="container" style="padding: 15px 15px 15px 15px">
+<div class="container" style="padding: 15px 15px 15px 15px; ">
   <div class="question-page-container" style="background-color: white; padding: 15px 15px 15px 15px; border-radius: 8px">
-    <p>< <%= link_to "All questions", questions_path, style:"color: #4A4A4A" %></p>
+    <p> <%= link_to "All questions", questions_path, style:"color: #4A4A4A" %></p>
     <h1 style="padding-top: 12px"><strong><%= @question.title.capitalize %></strong></h1>
     <p style="padding-top: 12px"><%= @question.content %></p>
     <% if @question.photo.attached? %>
       <%= cl_image_tag @question.photo.key, crop: :fill, style: "max-width: 300px; padding-bottom: 15px" %>
     <% end %>
     <div class="asker-infos">
-      <div style="padding-right: 6px"><p><strong>Asked by: </strong><%= @question.user.username %></p></div>
-        <div><% if @question.user.photo.attached? %>
+      <div style="padding-right: 6px">
+        <p><strong>Asked by: </strong><%= @question.user.username %></p>
+      </div>
+      <div>
+        <% if @question.user.photo.attached? %>
           <%= cl_image_tag @question.user.photo.key, crop: :fill, class: "avatar-small" %>
         <% end %>
-        </div>
+      </div>
     </div>
     <h4><strong><%= @question.answers.count %><%= @question.answers.count > 1 ? " answers" : " answer" %></strong></h4>
-      <% if @question.answers.count > 0 %>
-        <% @question.answers.each do |answer| %>
-          <div>
-            <p class="border-top" style="padding-top: 15px"><%= answer.content %></p>
-            <div class="answerer-infos">
-              <div style="padding-right: 6px"><p><strong></strong><%= answer.user.username %></p></div>
-              <div><% if answer.user.photo.attached? %>
+    <% if @question.answers.count > 0 %>
+      <% @question.answers.each do |answer| %>
+        <div>
+          <p class="border-top" style="padding-top: 15px"><%= answer.content %></p>
+          <div class="answerer-infos">
+            <div style="padding-right: 6px">
+              <p><strong></strong><%= answer.user.username %></p>
+            </div>
+            <div>
+              <% if answer.user.photo.attached? %>
                 <%= cl_image_tag answer.user.photo.key, crop: :fill, class: "avatar-small" %>
               <% end %>
             </div>
           </div>
-        <% end %>
-      <% else %>
-        <p style="padding-top: 15px">There are no answer yet to this question.</p>
+        </div>
       <% end %>
-      <div class="answers-form d-grid gap-2 border-top" style="padding-top: 15px"><%= render "answers/form", question: @question, answer: @answer %></div>
+    <% else %>
+      <p style="padding-top: 15px">There are no answer yet to this question.</p>
+    <% end %>
+    <div class="answers-form d-grid gap-2 border-top" style="padding-top: 15px">
+      <%= render "answers/form", question: @question, answer: @answer %>
     </div>
   </div>
-  <%= render "shared/footer_navbar" %>
+</div>
+</div>
+<%= render "shared/footer_navbar" %>
