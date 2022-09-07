@@ -19,14 +19,17 @@ application.register("filter", FilterController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import InfoCardController from "./info_card_controller"
+application.register("info-card", InfoCardController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
 import MapMeetingPointController from "./map_meeting_point_controller"
 application.register("map-meeting-point", MapMeetingPointController)
 
-import PoiCardController from "./poi_card_controller"
-application.register("poi-card", PoiCardController)
+import InfoCardController from "./info_card_controller"
+application.register("poi-card", InfoCardController)
 
 import QuestionFormController from "./question_form_controller"
 application.register("question-form", QuestionFormController)
