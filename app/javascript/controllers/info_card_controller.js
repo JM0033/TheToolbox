@@ -11,4 +11,10 @@ export default class extends Controller {
     // this.element.classList.toggle("card-user")
     this.element.remove()
   }
+
+  toggleItineraryCard(){
+    console.log('ToggleItinerary clicked')
+    this.element.classList.toggle("small-card-hidden")
+    this.element.classList.toggle("small-card")
+  }
 }

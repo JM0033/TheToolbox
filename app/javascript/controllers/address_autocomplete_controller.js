@@ -129,12 +129,15 @@ export default class extends Controller {
           minutes.toString().padStart(2, '0') + ':' +
           seconds.toString().padStart(2, '0');
           const partial = `
-            <div class="card-user" >
-              <div class="card-user-header">
-                Duration: ${timeString} min
+            <div class="small-card" data-controller="info-card" data-info-card-target="itineraryCard" >
+              <div class="itinerary-card-time">
+                <h2> Duration: ${timeString} min </h2>
               </div>
-              <div class="card-user-infos">
-                Distance: ${data.distance / 1000} km
+              <div class="itinerary-card-distance">
+                <h2> Distance: ${data.distance / 1000} km </h2>
+              </div>
+              <div class="header-second-column">
+              <i class="fa-solid fa-xmark closing-cross" data-action="click->info-card#toggleItineraryCard"></i>
               </div>
             </div>
             `
