@@ -33,30 +33,36 @@
     <%# Bikers %>
       <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
       <div class="filters filter-biker" data-bikers-target="btnBikers">
-        <div class="icon">
-          <i class="fa-solid fa-users"></i>
+        <div class="Bikers-icon">
+          <%= image_tag "Bikers-icon.png", class:"Bikers-icon" %>
+          <%= image_tag "Bikers-icon-active.png", class:"Bikers-icon-active" %>
+          <%# <i class="fa-solid fa-users"></i> %>
         </div>
         <div class="text">
           <p data-filter-target="content">Community</p>
         </div>
       </div>
       <% end %>
-    <%# Camping %>  
+    <%# Camping %>
       <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "campsite" } do %>
         <div class="filters" data-filter-target="btnCampsite">
-          <div class="icon">
-            <i class="fa-solid fa-campground"></i>
+          <div class="Campsite-icon">
+            <%# <i class="fa-solid fa-campground"></i> %>
+            <%= image_tag "Campsite-icon.png", class:"Campsite-icon" %>
+            <%= image_tag "Campsite-icon-active.png", class:"Campsite-icon-active" %>
           </div>
           <div class="text">
             <p data-filter-target="content">Camping</p>
           </div>
         </div>
       <% end %>
-    <%# Tourism %> 
+    <%# Tourism %>
       <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "tourism" } do %>
         <div class="filters" data-filter-target="btnTourism">
-          <div class="icon">
-            <i class="fa-solid fa-monument"></i>
+          <div class="Tourism-icon">
+            <%# <i class="fa-solid fa-monument"></i> %>
+            <%= image_tag "Tourism-icon.png", class:"Tourism-icon" %>
+            <%= image_tag "Tourism-icon-active.png", class:"Tourism-icon-active" %>
           </div>
           <div class="text">
             <p data-filter-target="content">Tourism</p>
@@ -66,8 +72,10 @@
     <%# Repair shops %>
       <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->filter#getCategory", category: "bikeshop" } do %>
         <div class="filters" data-filter-target="btnBikeshop">
-          <div class="icon">
-            <i class="fa-solid fa-wrench"></i>
+          <div class="Bikeshop-icon">
+            <%# <i class="fa-solid fa-wrench"></i> %>
+            <%= image_tag "Bikeshop-icon.png", class:"Bikeshop-icon" %>
+            <%= image_tag "Bikeshop-icon-active.png", class:"Bikeshop-icon-active" %>
           </div>
           <div class="text">
             <p data-filter-target="content">Repair</p>
