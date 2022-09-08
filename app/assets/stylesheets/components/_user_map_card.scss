@@ -1,28 +1,42 @@
 .card-user {
-  // overflow: hidden;
-  // height: ;
-  // width: 400px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
+  margin-left:-16px;
+  width: 100%;
   position: absolute;
   left: 1rem;
   right: 1rem;
-  z-index: 10000;
+  z-index: 2;
   bottom: 0;
-  transition: bottom 1s ease;
-  // animation: ;
+  // transition: bottom 1s ease;
+  // animation: normal;
+  // animation-duration: 10s;
+  transform: translateY(10px);
+}
+
+.subtitle{
+  font-size: 16px;
+}
+
+.closing-cross{
+  padding:10px;
+  font-weight: 600;
+}
+
+.name-col{
+  margin-left: 20px;
 }
 
 .card-user-header{
   margin: 10px 10px 5px 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-start;
   border-bottom: 0.05rem solid lightgrey;
   padding-bottom: 0.7rem;
 
   h1{
-    font-size: 25px;
+    font-size: 30px;
     font-weight:bolder;
     flex:1;
   }
@@ -66,16 +80,15 @@
 .card-user .card-user-infos {
   padding: 2px 10px 10px 10px;
   h2{
-    font-size: 12px;
+    font-size: 16px;
   }
 
   p{
     margin-bottom: 10px;
+    font-size: 16px;
   }
   #btn-user-card{
-    border-top: 0.05rem solid lightgrey;
     display:flex;
     justify-content:center;
-    padding-top: 10px;
   }
 }
