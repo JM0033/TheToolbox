@@ -1,16 +1,41 @@
 .Bikers-icon {
   width: 30px;
   height: 30px;
+  background-image: url("Bikers-icon.png");
+  background-size: contain;
 }
+
+.filters-active .Bikers-icon {
+  background-image: url("Bikers-icon-active.png");
+}
+
 .Campsite-icon {
   width: 30px;
   height: 30px;
+  background-image: url("Campsite-icon.png");
+  background-size: contain;
 }
+
+.filters-active .Campsite-icon {
+  background-image: url("Campsite-icon-active.png");
+}
+
 .Tourism-icon {
   width: 30px;
   height: 30px;
+  background-image: url("Tourism-icon.png");
+  background-size: contain;
 }
+.filters-active .Tourism-icon {
+  background-image: url("Tourism-icon-active.png");
+}
+
 .Bikeshop-icon {
   width: 30px;
   height: 30px;
+  background-image: url("Bikeshop-icon.png");
+  background-size: contain;
+}
+.filters-active .Bikeshop-icon {
+  background-image: url("Bikeshop-icon-active.png");
 }
