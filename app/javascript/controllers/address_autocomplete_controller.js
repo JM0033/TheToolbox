@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { Turbo } from "@hotwired/turbo-rails"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 
@@ -12,7 +13,7 @@ export default class extends Controller {
     routeCoordinates: Array
   }
 
-    static targets = ["container", "address", "mapbox"]
+  static targets = ["container", "address", "mapbox"]
 
 
   connect() {
@@ -52,13 +53,13 @@ export default class extends Controller {
     // console.log(window.map)
     if (this.marker) this.marker.remove()
     this.marker = new mapboxgl.Marker()
-      .setLngLat([ lng, lat ])
+      .setLngLat([lng, lat])
       .addTo(window.map)
-    }
+  }
 
   #addRoute(lat, lng) {
     const csrfToken = document.getElementsByName("csrf-token")[0].content;
-    console.log({coordinates:{ longitude: lat, latitude: lng }})
+    console.log({ coordinates: { longitude: lat, latitude: lng } })
 
     fetch("/get_route_points", {
       method: "POST",
@@ -67,15 +68,15 @@ export default class extends Controller {
         "Content-Type": "application/json", // 👈👈👈 To send json in body, specify this
         Accept: "application/json",         // 👈👈👈 Specify the response to be returned as json. For api only mode, this may not be needed
       },
-      body: JSON.stringify({coordinates:{ longitude: lng, latitude: lat }}),
+      body: JSON.stringify({ coordinates: { longitude: lng, latitude: lat } }),
     })
-    .then((response) => response.json())
-    .then((data) => {
-    //  console.log("data points :", data.points);
-    //  console.log("data duration :", data.duration);
-    //  console.log("data distance :", data.distance);
+      .then((response) => response.json())
+      .then((data) => {
+        //  console.log("data points :", data.points);
+        //  console.log("data duration :", data.duration);
+        //  console.log("data distance :", data.distance);
 
-      // console.log("Success:", data);
+        // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
         if (routeSource) {
           routeSource.setData({
@@ -101,33 +102,33 @@ export default class extends Controller {
           window.map.addLayer({
             'id': 'route',
             'type': 'line',
-           'source': 'route',
+            'source': 'route',
             'layout': {
               'line-join': 'round',
               'line-cap': 'round'
             },
             'paint': {
-             'line-color': '#0F469C',
-             'line-width': 5
+              'line-color': '#0F469C',
+              'line-width': 5
             }
           });
-          this.#addCustomToMap(data.points[data.points.length -1][1], data.points[data.points.length -1][0])
+          this.#addCustomToMap(data.points[data.points.length - 1][1], data.points[data.points.length - 1][0])
           window.map.fitBounds([
             this.userPositionValue,
-            [data.points[data.points.length -1][0], data.points[data.points.length -1][1]]
+            [data.points[data.points.length - 1][0], data.points[data.points.length - 1][1]]
           ],
             { padding: 80 })
-            console.log("initial:",
-              this.userPositionValue,
-              "final? :",
-              [data.points[data.points.length -1][0], data.points[data.points.length -1][1]])
+          console.log("initial:",
+            this.userPositionValue,
+            "final? :",
+            [data.points[data.points.length - 1][0], data.points[data.points.length - 1][1]])
           // console.log(data.points[data.points.length -1][0])
           const hours = Math.floor(data.duration / 3600);
           const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
           const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
           let timeString = hours.toString().padStart(2, '0') + ':' +
-          minutes.toString().padStart(2, '0') + ':' +
-          seconds.toString().padStart(2, '0');
+            minutes.toString().padStart(2, '0') + ':' +
+            seconds.toString().padStart(2, '0');
           const partial = `
             <div class="card-user" >
               <div class="card-user-header">
@@ -151,7 +152,7 @@ export default class extends Controller {
         // instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
         //  data.duration / 60
         // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
-    })
+      })
 
   }
   // input(event) {
