@@ -13,8 +13,13 @@ export default class extends Controller {
   }
 
   toggleItineraryCard(){
-    console.log('ToggleItinerary clicked')
     this.element.classList.toggle("small-card-hidden")
     this.element.classList.toggle("small-card")
+    //1. This enables to call a function in another controller(in that case calles in address_autocomplete_controller)
+    // We are creating a customized event, activated here. Which will be listened in the other controller.
+    const element = document.querySelector("body")
+    const event = new CustomEvent("close:modal")
+    element.dispatchEvent(event)
+    //1. End
   }
 }

@@ -16,6 +16,13 @@ export default class extends Controller {
 
 
   connect() {
+
+    // 1. This enables to communicate with another stimulus controller (In that case launched from info_card_controller #toggleitineraryCard)
+    // "This xxxx.bind enables to propagate "this" from the global environment."
+    const element = document.querySelector("body")
+    element.addEventListener("close:modal", this.clickOnClosingCross.bind(this))
+    // 1. End
+
     console.log("connected to address-autocomplete")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
@@ -158,6 +165,15 @@ export default class extends Controller {
   // input(event) {
   //   console.log(event.target.value)
   // }
+
+  clickOnClosingCross(evt) {
+    const routeSource = window.map.getSource("route")
+    console.log(routeSource)
+    window.map.removeLayer('route')
+    window.map.removeSource('route')
+    this.geocoder.clear()
+    this.marker.remove()
+  }
 
   disconnect() {
     this.geocoder.onRemove()
