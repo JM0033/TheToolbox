@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+.search-filters-container {
+  position: absolute;
+  bottom: 56px;
+  height: 70px;
+  background: white;
+  z-index: 50;
+  width: 100%;
+  transition: height 0.4s linear;
+  border-radius: 15px 15px 0 0;
+
+  &.expanded {
+    height: 150px;
+  }
+}
