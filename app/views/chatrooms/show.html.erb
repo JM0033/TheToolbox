@@ -17,6 +17,7 @@
     <% end %>
     </div>
   </div>
+  <div class="message-actions">
     <%= link_to new_user_meeting_point_path(@chatroom.interlocutor_of(current_user)), style:"text-decoration:none; color:red;" do%>
       <div id="btn-user-card" class = "btn-meeting">
         <p style="text-align:center; color: white; margin: 0;" >Set up a meeting with <%= @chatroom.interlocutor_of(current_user).username %> </p>
@@ -37,5 +38,6 @@
         input_html: { class: 'form-control' } %>
       <%= f.submit "Send", class: 'btn btn-primary-light mb-3 d-none' %>
     <% end %>
+  </div>
 </div>
   <%= render "shared/footer_navbar" %>
