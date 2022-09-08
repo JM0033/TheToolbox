@@ -1,19 +1,30 @@
+
 .small-card {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px 5px 0px 0px;
-  margin-left:-16px;
   width: 100%;
   position: absolute;
-  left: 1rem;
-  right: 1rem;
   z-index: 60;
-  bottom: 0;
-  transition: bottom 1s ease;
+  bottom: 70px;
+
+  &.itinerary{
+    background-color: #417193;
+    color: white;
+  }
+
+  &.up{
+    bottom:150px;
+  }
+
+}
+
+.poi{
+  bottom:0px;
 }
 
 .small-card-hidden{
-  display: none;
+  bottom:0;
 }
 
 .subtitle{
@@ -78,6 +89,7 @@
   p{
     margin-bottom: 10px;
   }
+
   #btn-small-card{
     display:flex;
     justify-content:center;
@@ -87,4 +99,5 @@
 
 #closing-cross-itinerary{
   padding:0;
+  color: white;
 }

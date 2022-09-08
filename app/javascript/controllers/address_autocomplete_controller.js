@@ -138,7 +138,7 @@ export default class extends Controller {
           minutes.toString().padStart(2, '0')
 
           const partial = `
-            <div class="small-card" data-controller="info-card" data-info-card-target="itineraryCard" >
+            <div class="small-card itinerary" data-controller="info-card" data-info-card-target="itineraryCard" >
               <div class="small-card-header">
                 <h2> <strong> Duration:</strong> ${timeString} min </h2>
                 <h2> <strong> Distance:</strong> ${Math.round(data.distance / 1000)} km </h2>
@@ -149,6 +149,8 @@ export default class extends Controller {
             </div>
             `
           this.mapboxTarget.insertAdjacentHTML('beforeEnd', partial);
+          if(document.querySelector('.expanded')) {
+            document.querySelector('.small-card').classList.add('up')}
         }
         // const instructions = document.getElementById('instructions');
         // const duration = data.duration;

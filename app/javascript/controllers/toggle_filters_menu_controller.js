@@ -10,5 +10,8 @@ export default class extends Controller {
 
   toggleMenu() {
     this.element.classList.toggle('expanded')
+    if(document.querySelector('.itinerary')) {
+      document.querySelector('.itinerary').classList.toggle('up')
+    }
   }
 }
