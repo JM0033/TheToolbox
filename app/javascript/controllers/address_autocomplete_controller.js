@@ -17,6 +17,13 @@ export default class extends Controller {
 
 
   connect() {
+
+    // 1. This enables to communicate with another stimulus controller (In that case launched from info_card_controller #toggleitineraryCard)
+    // "This xxxx.bind enables to propagate "this" from the global environment."
+    const element = document.querySelector("body")
+    element.addEventListener("close:modal", this.clickOnClosingCross.bind(this))
+    // 1. End
+
     console.log("connected to address-autocomplete")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
@@ -126,17 +133,18 @@ export default class extends Controller {
           // console.log(data.points[data.points.length -1][0])
           const hours = Math.floor(data.duration / 3600);
           const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
-          const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
+          // const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
           let timeString = hours.toString().padStart(2, '0') + ':' +
-            minutes.toString().padStart(2, '0') + ':' +
-            seconds.toString().padStart(2, '0');
+          minutes.toString().padStart(2, '0')
+
           const partial = `
-            <div class="card-user" >
-              <div class="card-user-header">
-                Duration: ${timeString} min
-              </div>
-              <div class="card-user-infos">
-                Distance: ${data.distance / 1000} km
+            <div class="small-card" data-controller="info-card" data-info-card-target="itineraryCard" >
+              <div class="small-card-header">
+                <h2> <strong> Duration:</strong> ${timeString} min </h2>
+                <h2> <strong> Distance:</strong> ${Math.round(data.distance / 1000)} km </h2>
+                <div class="header-second-column">
+                  <i class="fa-solid fa-xmark closing-cross" id="closing-cross-itinerary" data-action="click->info-card#toggleItineraryCard"></i>
+                </div>
               </div>
             </div>
             `
@@ -159,6 +167,15 @@ export default class extends Controller {
   // input(event) {
   //   console.log(event.target.value)
   // }
+
+  clickOnClosingCross(evt) {
+    const routeSource = window.map.getSource("route")
+    console.log(routeSource)
+    window.map.removeLayer('route')
+    window.map.removeSource('route')
+    this.geocoder.clear()
+    this.marker.remove()
+  }
 
   disconnect() {
     this.geocoder.onRemove()
