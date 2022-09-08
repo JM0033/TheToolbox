@@ -2,7 +2,7 @@
 .search-filters-container {
   position: fixed;
   bottom: 56px;
-  height: 70px;
+  height: 74px;
   background: white;
   z-index: 50;
   width: 100%;
@@ -10,6 +10,6 @@
   border-radius: 15px 15px 0 0;
 
   &.expanded {
-    height: 150px;
+    height: 154px;
   }
 }
