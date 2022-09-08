@@ -1,7 +1,7 @@
 <div class="small-card" data-controller="info-card" data-info-card-target="infoCard">
   <div class="small-card-header">
-   <%= image_tag "#{poi.category}.png", alt: "Category logo", class: 'avatar-large'%>
-    <div>
+    <%= image_tag "#{poi.category}.png", alt: "Category logo", class: 'avatar-large'%>
+    <div style="width: 70%">
       <h1> <%= poi.name %> </h1>
       <p class="subtitle"> <%= poi.category %> </p>
     </div>
@@ -12,9 +12,18 @@
   <div class="small-card-infos">
     <p class="subtitle"> <%= poi.address%> </p>
     <%= link_to root_path(), style:"text-decoration:none; color:red;" do %>
-      <div id="btn-small-card">
-        <p class="btn filters btn-long">Details</p>
-      </div>
+    <div>
+      <p id="btn-small-card" class="btn filters btn-long">Details</p>
+    </div>
+    <div class="poi-pictures">
+      <%= cl_image_tag "#{poi.photos.first.key}", alt: "#{poi.name}'s image", class: 'poi-image'%>
+      <% if poi.photos.second %>
+        <%= cl_image_tag "#{poi.photos.second.key}", alt: "#{poi.name}'s image", class: 'poi-image'%>
+      <% end %>
+      <% if poi.photos[2] %>
+        <%= cl_image_tag "#{poi.photos[2].key}", alt: "#{poi.name}'s image", class: 'poi-image'%>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>

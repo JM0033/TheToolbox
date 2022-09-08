@@ -631,6 +631,15 @@ file = URI.open("https://media.tacdn.com/media/attractions-splice-spp-674x446/07
 @ValledelaLuna.photos.attach(io: file, filename: "ValledelaLuna.png", content_type: "image/png")
 @ValledelaLuna.save!
 
+file = URI.open("https://milesandlove.com/system/attachments/1402/xxlarge/coucher-de-soleil-vallee-de-la-luna.jpg")
+@ValledelaLuna.photos.attach(io: file, filename: "ValledelaLuna2.png", content_type: "image/png")
+@ValledelaLuna.save!
+
+file = URI.open("https://cdn.getyourguide.com/img/location/5cf14312e2ef1.jpeg/68.jpg")
+@ValledelaLuna.photos.attach(io: file, filename: "ValledelaLuna3.png", content_type: "image/png")
+@ValledelaLuna.save!
+
+
 @lagunasEscondidasdeBaltinache = PointOfInterest.new(
   address: "Salar de Atacama, Chili",
   category: "Tourism",
@@ -661,10 +670,18 @@ file = URI.open("https://www.tangol.com/Fotos/Tours/quitor-y-catarpe-en-biciclet
 @observatorio = PointOfInterest.new(
   address: "Coyo, Chili",
   category: "Tourism",
-  name: "Observatorio Hemisferio Sur",
+  name: "Observatorio Sur",
 )
 file = URI.open("https://www.observatoriocielosur.cl/imagenes/servicios/dest_01.jpg")
 @observatorio.photos.attach(io: file, filename: "observatorio.png", content_type: "image/png")
+@observatorio.save!
+
+file = URI.open("http://opcc.cl/imagenes/lasilla.jpg")
+@observatorio.photos.attach(io: file, filename: "observatorio2.png", content_type: "image/png")
+@observatorio.save!
+
+file = URI.open("https://noirlab.edu/public/media/archives/images/screen/iotw2026a.jpg")
+@observatorio.photos.attach(io: file, filename: "observatorio3.png", content_type: "image/png")
 @observatorio.save!
 
 @reservaAvaroa = PointOfInterest.new(
