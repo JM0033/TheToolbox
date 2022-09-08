@@ -2,22 +2,26 @@
   <div class="footer-content">
     <div class="btn-footer">
       <%= link_to root_path, style: "text-decoration: none;" do %>
-      <i class="fa-solid fa-house"></i>
+      <%# <i class="fa-solid fa-house"></i> %>
+      <%= image_tag "Home.png", class:"Home-icon" %>
     <% end %>
     </div>
     <div class="btn-footer">
       <%= link_to questions_path, style: "text-decoration: none;" do %>
-      <i class="fa-solid fa-person-circle-question"></i>
+      <%# <i class="fa-solid fa-person-circle-question"></i> %>
+      <%= image_tag "FAQ.png", class:"FAQ-icon" %>
     <% end %>
     </div>
     <div class="btn-footer">
       <%= link_to meeting_points_path, style: "text-decoration: none;" do %>
-      <i class="fa-solid fa-calendar"></i>
+      <%# <i class="fa-solid fa-calendar"></i> %>
+      <%= image_tag "Calendar.png", class:"Calendar-icon" %>
     <% end %>
     </div>
     <div class="btn-footer">
       <%= link_to chatrooms_path, style: "text-decoration: none;" do %>
-      <i class="fa-solid fa-comments"></i>
+      <%# <i class="fa-solid fa-comments"></i> %>
+      <%= image_tag "Chat.png", class:"Chat-icon" %>
     <% end %>
     </div>
   </div>

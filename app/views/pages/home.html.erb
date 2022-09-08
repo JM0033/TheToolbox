@@ -2,11 +2,10 @@
 
 <div data-controller="filter bikers address-autocomplete" data-address-autocomplete-user-position-value="<%= [@userLgn, @userLat]%>"
     data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-address-autocomplete-trace-route-value="<%= params[:trace_route] %>"
-    data-address-autocomplete-route-coordinates-value="<%= [params[:lat], params[:lng]] %>"
-    >
+    data-address-autocomplete-trace-route-value="<%= params[:trace_route] || "false" %>"
+    data-address-autocomplete-route-coordinates-value="<%= params[:lat] ? [params[:lat], params[:lng]] : [] %>">
 
-  <div class="map" style="width: 100%; height: 74vh;"
+  <div class="map" style="width: 100%; height: calc(100vh - 66px);"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-users-markers-value="<%= @users_markers.to_json %>"
@@ -17,8 +16,10 @@
     data-map-hide-markers-value="true">
   </div>
 
-<div class="search-filters-container">
-  <div style="display: flex; justify-content: center; padding-top: 5px"><button class="menu-extension-button" type="button"></button></div>
+<div class="search-filters-container" data-controller="toggle-filters-menu">
+  <div data-action="click->toggle-filters-menu#toggleMenu" style="display: flex; justify-content: center; padding-top: 5px">
+    <button class="menu-extension-button" type="button"></button>
+  </div>
   <%# search bar %>
     <div class="search">
       <div class="icon">
@@ -29,13 +30,13 @@
       </div>
     </div>
   <%# Filters menu %>
-    <div class="btn-contain container">
+    <div class="btn-contain container" data-toggle-filters-menu-target="btnContainer">
     <%# Bikers %>
       <%= link_to root_path, style: "text-decoration: none;", data: { action: "click->bikers#displayBikers", category: "bikers" } do %>
       <div class="filters filter-biker" data-bikers-target="btnBikers">
         <div class="Bikers-icon">
-          <%= image_tag "Bikers-icon.png", class:"Bikers-icon" %>
-          <%# <%= image_tag "Bikers-icon-active.png", class:"Bikers-icon-active d-none" %>
+          <%#= image_tag "Bikers-icon.png", class:"Bikers-icon" %>
+          <%# <%= image_tag "Bikers-icon-active.png", class:"Bikers-icon d-none" %>
           <%# <i class="fa-solid fa-users"></i> %>
         </div>
         <div class="text">
@@ -48,7 +49,7 @@
         <div class="filters" data-filter-target="btnCampsite">
           <div class="Campsite-icon">
             <%# <i class="fa-solid fa-campground"></i> %>
-            <%= image_tag "Campsite-icon.png", class:"Campsite-icon" %>
+            <%# <%= image_tag "Campsite-icon.png", class:"Campsite-icon" %>
             <%# <%= image_tag "Campsite-icon-active.png", data-filter-target="btnCampsite", class:"Campsite-icon-active d-none" %>
           </div>
           <div class="text">
@@ -61,7 +62,7 @@
         <div class="filters" data-filter-target="btnTourism">
           <div class="Tourism-icon">
             <%# <i class="fa-solid fa-monument"></i> %>
-            <%= image_tag "Tourism-icon.png", class:"Tourism-icon" %>
+            <%#= image_tag "Tourism-icon.png", class:"Tourism-icon" %>
             <%# <%= image_tag "Tourism-icon-active.png", data-filter-target:"btnTourism", class:"Tourism-icon-active d-none" %>
           </div>
           <div class="text">
@@ -74,7 +75,7 @@
         <div class="filters" data-filter-target="btnBikeshop">
           <div class="Bikeshop-icon">
             <%# <i class="fa-solid fa-wrench"></i> %>
-            <%= image_tag "Bikeshop-icon.png", class:"Bikeshop-icon" %>
+            <%#= image_tag "Bikeshop-icon.png", class:"Bikeshop-icon" %>
             <%# <%= image_tag "Bikeshop-icon-active.png", data-filter-target="btnBikeshop", class:"Bikeshop-icon-active d-none" %>
           </div>
           <div class="text">
