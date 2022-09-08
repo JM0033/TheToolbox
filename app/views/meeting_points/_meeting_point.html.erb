@@ -1,7 +1,11 @@
-<div class="question-container border-bottom" style="padding-top: 15px">
-  <h4><strong><%= link_to "Launch itinerary", root_path(trace_route: true, lat: meeting_point.latitude, lng: meeting_point.longitude), style: "text-decoration: none;" %></strong></h4>
-  <p><strong>When: </strong><%= meeting_point.date_time.strftime("%m/%d/%Y at %I:%M%p") %></p>
-  <div class="question-info">
+<div class="question-container card-meetings" style="padding-top: 15px;">
+  <%= link_to root_path(trace_route: true, lat: meeting_point.latitude, lng: meeting_point.longitude), style:"text-decoration:none; color:red;" do%>
+    <div id="btn-user-card" class = "btn-meeting">
+      <p style="text-align:center; color: white; margin: 0;" >Launch itinerary</p>
+    </div>
+  <%end%>
+  <p id="marg-top"><strong>When: </strong><%= meeting_point.date_time.strftime("%m/%d/%Y at %I:%M%p") %></p>
+  <div class="question-info less">
     <div class="answer-count-infos">
       <p><strong>Status: </strong><%= meeting_point.status %></p>
     </div>
