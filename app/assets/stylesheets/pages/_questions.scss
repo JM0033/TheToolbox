@@ -25,17 +25,19 @@
 
 .questions-container {
   .btn{
-    background: $main-dark;
+    background: $secondary-dark;
     color: white;
     border-radius: 8px;
+    border-color: $secondary-dark;
   }
 }
 
 .answers-form {
   .btn{
-    background: $main-dark;
+    background: $secondary-dark;
     color: white;
     border-radius: 8px;
+    border-color: $secondary-dark;
   }
 }
 
@@ -49,7 +51,7 @@
 
 .question-container {
   a {
-    color: $secondary-light;
+    color: $secondary-dark;
   }
 }
 
