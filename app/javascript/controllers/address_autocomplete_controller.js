@@ -124,20 +124,18 @@ export default class extends Controller {
           // console.log(data.points[data.points.length -1][0])
           const hours = Math.floor(data.duration / 3600);
           const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
-          const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
+          // const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
           let timeString = hours.toString().padStart(2, '0') + ':' +
-          minutes.toString().padStart(2, '0') + ':' +
-          seconds.toString().padStart(2, '0');
+          minutes.toString().padStart(2, '0')
+          //  + ':' + seconds.toString().padStart(2, '0');
           const partial = `
             <div class="small-card" data-controller="info-card" data-info-card-target="itineraryCard" >
-              <div class="itinerary-card-time">
-                <h2> Duration: ${timeString} min </h2>
-              </div>
-              <div class="itinerary-card-distance">
-                <h2> Distance: ${data.distance / 1000} km </h2>
-              </div>
-              <div class="header-second-column">
-              <i class="fa-solid fa-xmark closing-cross" data-action="click->info-card#toggleItineraryCard"></i>
+              <div class="small-card-header">
+                <h2> <strong> Duration:</strong> ${timeString} min </h2>
+                <h2> <strong> Distance:</strong> ${Math.round(data.distance / 1000)} km </h2>
+                <div class="header-second-column">
+                  <i class="fa-solid fa-xmark closing-cross" id="closing-cross-itinerary" data-action="click->info-card#toggleItineraryCard"></i>
+                </div>
               </div>
             </div>
             `

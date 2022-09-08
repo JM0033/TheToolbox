@@ -29,7 +29,7 @@
   margin: 10px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0.7rem;
+  // padding-bottom: 0.7rem;
 
   h1{
     font-size: 25px;
@@ -41,6 +41,7 @@
     flex: 1;
     font-size: 16px;
     font-weight: normal;
+    margin-bottom: 0px;
   }
 
   .fa-solid{
@@ -82,4 +83,8 @@
     justify-content:center;
     padding-top: 10px;
   }
+}
+
+#closing-cross-itinerary{
+  padding:0;
 }
