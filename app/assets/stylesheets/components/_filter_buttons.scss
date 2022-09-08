@@ -8,7 +8,7 @@
 }
 
 .filters {
-  color: white;
+  color: black;
   background-color: $main-dark;
   border-radius: 8px;
   padding: 8px;
@@ -17,10 +17,16 @@
   justify-content: center;
   align-items: center;
   width: 95px;
+  border: solid black 1px;
+  i {
+    color: black !important;
+  }
 }
 
 .filters-active {
   background-color: $secondary-dark;
+  border: solid black 1px;
+  color: white;
 }
 
 body {
