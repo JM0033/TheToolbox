@@ -78,6 +78,7 @@ export default class extends Controller {
 
         // console.log("Success:", data);
         const routeSource = window.map.getSource("route")
+
         if (routeSource) {
           routeSource.setData({
             'type': 'Feature',
@@ -108,8 +109,8 @@ export default class extends Controller {
               'line-cap': 'round'
             },
             'paint': {
-              'line-color': '#0F469C',
-              'line-width': 5
+             'line-color': '#37AB2F',
+             'line-width': 5
             }
           });
           this.#addCustomToMap(data.points[data.points.length - 1][1], data.points[data.points.length - 1][0])
