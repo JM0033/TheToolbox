@@ -53,6 +53,7 @@ export default class extends Controller {
         // console.log(marker)
         // console.log("Clicked", marker.info_card)
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.info_card)
+        document.querySelector('.small-card').classList.toggle('poi')
       })
     })
   }
