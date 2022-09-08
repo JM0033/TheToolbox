@@ -2,17 +2,16 @@
 <div class="card-user" data-controller="user-map-card" data-user-map-card-target="userCard">
   <div class="card-user-header">
     <%= cl_image_tag "#{user.photo.key}", alt: "#{user.username}'s avatar", class: 'avatar-bordered'%>
-    <div>
+    <div class="name-col">
       <h1> <%= user.username %> </h1>
-      <h2> <%= user.biker_status %> </h2>
+      <p><strong>Level: </strong><%= image_tag "#{user.biker_status}.png", width: "25px", height: "25px", class: "biker_status" %><strong> Language: </strong><%= image_tag "#{user.language}.png", width: "25px", height: "25px", class: "language"  %></p>
     </div>
     <div class="header-second-column">
-      <i class="fa-solid fa-square-xmark" data-action="click->user-map-card#closeUserMapCard"></i>
-      <p> <%= user.language %> </p>
+      <i class="fa-solid fa-xmark closing-cross" data-action="click->user-map-card#closeUserMapCard"></i>
     </div>
   </div>
   <div class="card-user-infos">
-    <h2> <%= user.bike_model %> </h2>
+    <h2> <strong> Bike: </strong><%= user.bike_model %> </h2>
     <p> <%= user.description %> </p>
       <% if current_user.chatroom_with(user) %>
         <%= link_to chatroom_path(current_user.chatroom_with(user)), style:"text-decoration:none; color:red;" do %>
