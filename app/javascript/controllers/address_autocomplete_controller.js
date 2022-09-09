@@ -134,7 +134,7 @@ export default class extends Controller {
           const hours = Math.floor(data.duration / 3600);
           const minutes = Math.floor((data.duration - (hours * 3600)) / 60);
           // const seconds = Math.round(data.duration - (hours * 3600) - (minutes * 60));
-          let timeString = hours.toString().padStart(2, '0') + ':' +
+          let timeString = hours.toString().padStart(2, '0') + ' h ' +
           minutes.toString().padStart(2, '0')
 
           const partial = `
