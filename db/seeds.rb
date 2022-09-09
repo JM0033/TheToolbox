@@ -130,9 +130,7 @@ file = URI.open("https://ca.slack-edge.com/T02NE0241-UP3USJP7F-55bf4dafd2c6-512"
 
 #--------------------------Meeting points-------------------------------
 
-MeetingPoint.new(helper_id: @clemence.id,requestor_id: @john.id, latitude: 2.3590809492289466, longitude: 48.95226546436605, date_time: "2022-09-07 14:31:16.422414000 +0000", status: "accepted").save!
-MeetingPoint.new(helper_id: @john.id,requestor_id: @jeannoel.id, latitude: -22.9111000, longitude: -68.2011300, date_time: "2022-09-10 14:31:16.422414000 +0000", status: "accepted").save!
-MeetingPoint.new(helper_id: @jeremy.id,requestor_id: @john.id,   longitude: -68.090525, latitude: -23.097688, date_time: "2022-09-09 14:31:16.422414000 +0000", status: "accepted").save!
+MeetingPoint.new(helper_id: @jeremy.id,requestor_id: @john.id,   longitude: -68.110525, latitude: -23.117688, date_time: "2022-09-11 14:31:16.422414000 +0000", status: "accepted").save!
 
 #--------------------------Chatrooms-------------------------------
 
