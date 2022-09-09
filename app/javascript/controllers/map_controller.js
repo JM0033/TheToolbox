@@ -63,12 +63,12 @@ export default class extends Controller {
 
         // const element = document.querySelector('.small-card');
         // element.remove();
-        document.querySelectorAll('.small-card').forEach((card) => {
+        document.querySelectorAll('.small-card, .user-card').forEach((card) => {
           card.remove();
         })
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.info_card);
         document.querySelector('.small-card').classList.toggle('poi');
-        console.log(document.querySelector('.small-card'))
+        // console.log(document.querySelector('.small-card'))
       })
     })
   }
@@ -96,7 +96,7 @@ export default class extends Controller {
       bikerMarker.getElement().addEventListener('click', () => {
         // console.log(marker)
         // console.log("Clicked", marker.user_card)
-        document.querySelectorAll('.card-user').forEach((card) => {
+        document.querySelectorAll('.card-user, .small-card').forEach((card) => {
           card.remove();
         })
         this.mapboxTarget.insertAdjacentHTML('beforeEnd', marker.user_card)
