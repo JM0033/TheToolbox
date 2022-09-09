@@ -621,7 +621,7 @@ puts "Creating Question 15 and answers"
 puts "Creating POIs..."
 
 @ValledelaLuna = PointOfInterest.new(
-  address: "Zapar, Chili",
+  address: "Ayllu de Cucuter chile",
   category: "Tourism",
   name: "Valle de la Luna",
 )
@@ -745,23 +745,23 @@ file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864018/y
 @campingArcEnCiel.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
 @campingArcEnCiel.save!
 
-@velodrome = PointOfInterest.new(
-  address: "11 Villa du Sud, 93380 Pierrefitte-sur-Seine, France",
-  category: "Campsite",
-  name: "Best wild camping ever!",
-)
-file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
-@velodrome.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
-@velodrome.save!
+# @velodrome = PointOfInterest.new(
+#   address: "11 Villa du Sud, 93380 Pierrefitte-sur-Seine, France",
+#   category: "Campsite",
+#   name: "Best wild camping ever!",
+# )
+# file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
+# @velodrome.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
+# @velodrome.save!
 
-@espaceAngelaDavis = PointOfInterest.new(
-  address: "1 Rue Jack London, 93240 Stains, France",
-  category: "Campsite",
-  name: "Hidden camping spot next to the lake",
-)
-file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
-@espaceAngelaDavis.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
-@espaceAngelaDavis.save!
+# @espaceAngelaDavis = PointOfInterest.new(
+#   address: "1 Rue Jack London, 93240 Stains, France",
+#   category: "Campsite",
+#   name: "Hidden camping spot next to the lake",
+# )
+# file = URI.open("https://res.cloudinary.com/dw5loa15q/image/upload/v1661864608/dlb37mmxg67uymvvwtvf.jpg")
+# @espaceAngelaDavis.photos.attach(io: file, filename: "campingArcEnCiel.png", content_type: "image/png")
+# @espaceAngelaDavis.save!
 
 
 
@@ -793,12 +793,16 @@ file = URI.open("https://media.tacdn.com/media/attractions-splice-spp-720x480/0b
 @campingLaDona.save!
 
 @campingElSol = PointOfInterest.new(
-  address: "Parque Pozo 3, Chile",
+  address: "Avenida Selti 39, San Pedro de Atacama, Antofagasta, Chile",
   category: "Campsite",
   name: "Camping El Sol",
 )
 file = URI.open("https://media.cntraveller.com/photos/611bf40980db5ca184e71539/16:9/w_1280,c_limit/atacama_camp_8apr11_pr.jpg")
 @campingElSol.photos.attach(io: file, filename: "campingElSol.png", content_type: "image/png")
+@campingElSol.save!
+
+file = URI.open("https://media-cdn.tripadvisor.com/media/photo-s/02/38/f3/3a/getlstd-property-photo.jpg")
+@campingElSol.photos.attach(io: file, filename: "campingElSol2.png", content_type: "image/png")
 @campingElSol.save!
 
 @campingDeLaLaguna = PointOfInterest.new(
@@ -875,6 +879,10 @@ file = URI.open("https://davesbikeshop.com/wp-content/uploads/Inside-5_cropped.j
 @tiendaBici.photos.attach(io: file, filename: "tiendaBici.png", content_type: "image/png")
 @tiendaBici.save!
 
+file = URI.open("https://www.palco23.com/files//2020/19_redaccion/equipamiento/kbike-728.jpg")
+@tiendaBici.photos.attach(io: file, filename: "tiendaBici2.png", content_type: "image/png")
+@tiendaBici.save!
+
 @bicimarket = PointOfInterest.new(
   address: "Sendero B 925, 935, Calama, Antofagasta, Chile",
   category: "Bikeshop",
@@ -882,6 +890,10 @@ file = URI.open("https://davesbikeshop.com/wp-content/uploads/Inside-5_cropped.j
 )
 file = URI.open("https://www.citybike-shop.com/wp-content/uploads/2017/06/velo-tout-chemin-vtc.jpg")
 @bicimarket.photos.attach(io: file, filename: "bicimarket.png", content_type: "image/png")
+@bicimarket.save!
+
+file = URI.open("https://nevadabike.com/img/quienes/10.jpg")
+@bicimarket.photos.attach(io: file, filename: "bicimarket2.png", content_type: "image/png")
 @bicimarket.save!
 
 @superBici = PointOfInterest.new(
