@@ -175,7 +175,8 @@ export default class extends Controller {
     console.log(routeSource)
     window.map.removeLayer('route')
     window.map.removeSource('route')
-    this.geocoder.clear()
+    // this.geocoder.clear() --> would select back the input (focus). -> Using next line, it will blur the field.
+    this.geocoder.setInput('')
     this.marker.remove()
   }
 
