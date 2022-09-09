@@ -89,3 +89,15 @@
     justify-content:center;
   }
 }
+
+.btn-user-card-content{
+  display:flex;
+  justify-content:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: $secondary-dark;
+  color: white;
+  border-radius: 8px;
+  border-color: $secondary-dark;
+  opacity:1 !important;
+}
